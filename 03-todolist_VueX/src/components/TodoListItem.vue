@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import mapLevel from "../mock/level";
 export default {
     name: "todo-list-item",
@@ -37,9 +38,13 @@ export default {
         }
     },
     methods: {
+        ...mapActions({
+            actionHandleDelete: "handleDelete"
+        }),
         handleDelete() {
             if (confirm("Are you sure to delete this task", this.task.name)) {
-                this.$emit("handleDelete", this.task);
+                this.actionHandleDelete(this.task);
+                // this.$emit("handleDelete", this.task);
             }
         },
         handleEdit() {

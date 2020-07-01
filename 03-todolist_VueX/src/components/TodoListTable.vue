@@ -17,7 +17,6 @@
                     v-bind:key="task.id"
                     v-bind:task="task"
                     v-bind:index="index + 1"
-                    v-on:handleDelete="handleDelete"
                     v-on:handleEdit="handleEdit"
                 />
             </tbody>
@@ -33,8 +32,8 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
-import { mapActions } from "vuex";
+import { mapState, mapActions, mapGetters } from "vuex";
+
 import TodoListItem from "./TodoListItem";
 export default {
     name: "todo-list-table",
@@ -45,24 +44,23 @@ export default {
         return {};
     },
     watch: {
-        listTask: function(newData) {
-            var taskString = JSON.stringify(newData);
-            localStorage.setItem("tasks", taskString);
-        }
+        // listTask: function(newData) {
+        //     var taskString = JSON.stringify(newData);
+        //     localStorage.setItem("tasks", taskString);
+        // }
     },
     computed: {
-        ...mapState(["listTask"])
+        ...mapGetters({
+            listTask: "listTaskSearchSort"
+        })
     },
     created() {
         let tasks = localStorage.getItem("tasks") || []; // Nếu có data => getData  else không có data => set empty Array
-        console.log("created in table", JSON.parse(tasks));
+        // console.log("created in table", JSON.parse(tasks));
         this.changeTasks(JSON.parse(tasks));
     },
     methods: {
         ...mapActions(["changeTasks"]),
-        handleDelete(taskDelete) {
-            this.$emit("handleDelete", taskDelete);
-        },
         handleEdit(taskEdit) {
             this.$emit("handleEdit", taskEdit);
         }

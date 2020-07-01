@@ -1,6 +1,6 @@
 <template>
     <b-col cols="12" lg="6">
-        <form-add v-bind:isShowForm="isShowForm" v-on:handleToggleForm="handleToggleForm" />
+        <form-add />
 
         <form v-if="isShowForm" action method="POST" class="form-inline justify-content-between">
             <div class="form-group">
@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import { mapState, mapActions } from "vuex";
 import FormAdd from "./FormAdd";
 
 import { v4 as uuidv4 } from "uuid";
@@ -38,10 +39,6 @@ export default {
         FormAdd
     },
     props: {
-        isShowForm: {
-            type: Boolean,
-            default: false
-        },
         taskSelected: {
             type: Object,
             default: null
@@ -53,6 +50,7 @@ export default {
             level: 0
         };
     },
+    computed: mapState(["isShowForm"]),
     watch: {
         taskSelected: function(newData, oldData) {
             if (newData !== null) {
@@ -63,6 +61,7 @@ export default {
     },
     beforeUpdate() {},
     methods: {
+        ...mapActions(["toggleForm"]),
         handleEditTask() {
             let objTaskEdit = {
                 id: this.taskSelected.id,
@@ -72,11 +71,8 @@ export default {
             this.$emit("handleEditTaskById", objTaskEdit);
             this.handleResetData();
         },
-        handleToggleForm() {
-            this.$emit("toggleForm");
-        },
         handleCancel() {
-            this.$emit("toggleForm");
+            this.toggleForm();
             this.handleResetData();
         },
         handleAddnew() {
