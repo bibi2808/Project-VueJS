@@ -33,22 +33,33 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+import { mapActions } from "vuex";
 import TodoListItem from "./TodoListItem";
 export default {
     name: "todo-list-table",
     components: {
         TodoListItem
     },
-    props: {
-        listTask: {
-            type: Array,
-            default: []
-        }
-    },
     data() {
         return {};
     },
+    watch: {
+        listTask: function(newData) {
+            var taskString = JSON.stringify(newData);
+            localStorage.setItem("tasks", taskString);
+        }
+    },
+    computed: {
+        ...mapState(["listTask"])
+    },
+    created() {
+        let tasks = localStorage.getItem("tasks") || []; // Nếu có data => getData  else không có data => set empty Array
+        console.log("created in table", JSON.parse(tasks));
+        this.changeTasks(JSON.parse(tasks));
+    },
     methods: {
+        ...mapActions(["changeTasks"]),
         handleDelete(taskDelete) {
             this.$emit("handleDelete", taskDelete);
         },

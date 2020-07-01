@@ -2,7 +2,7 @@
     <div id="app">
         <b-container>
             <comp-title />
-
+            <!-- <h1>{{count}}</h1> -->
             <b-row>
                 <comp-control
                     v-bind:orderBy="orderBy"
@@ -21,16 +21,14 @@
                 />
             </b-row>
 
-            <todo-list-table
-                v-on:handleEdit="handleEdit"
-                v-on:handleDelete="handleDelete"
-                v-bind:listTask="listTaskSort"
-            />
+            <todo-list-table v-on:handleEdit="handleEdit" v-on:handleDelete="handleDelete" />
         </b-container>
     </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 import TodoListTable from "./components/TodoListTable";
 import CompTitle from "./components/CompTitle";
 import CompControl from "./components/CompControl";
@@ -55,13 +53,8 @@ export default {
             taskSelected: null
         };
     },
-    watch: {
-        listTask: function(newData) {
-            var taskString = JSON.stringify(newData);
-            localStorage.setItem("tasks", taskString);
-        }
-    },
     computed: {
+        // ...mapState(["count"]),
         listTaskSearch() {
             const { strSearch } = this;
             var newItems = this.listTask.filter(item => {
@@ -77,14 +70,14 @@ export default {
             return listTask;
         }
     },
-    created() {
-        let tasks = localStorage.getItem("tasks");
-        if (tasks !== null) {
-            this.listTask = JSON.parse(tasks);
-        } else {
-            this.listTask = [];
-        }
-    },
+    // created() {
+    //     let tasks = localStorage.getItem("tasks");
+    //     if (tasks !== null) {
+    //         this.listTask = JSON.parse(tasks);
+    //     } else {
+    //         this.listTask = [];
+    //     }
+    // },
     methods: {
         handleEditTaskById(taskEdit) {
             let index = this.listTask.findIndex(
