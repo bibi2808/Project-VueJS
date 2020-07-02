@@ -49,8 +49,6 @@ export default {
         },
         handleEdit() {
             this.actionhandleEdit(this.task);
-
-            // this.$emit("handleEdit", this.task);
         }
     }
 };
