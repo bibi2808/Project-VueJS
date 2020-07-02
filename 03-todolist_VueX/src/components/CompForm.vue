@@ -38,19 +38,13 @@ export default {
     components: {
         FormAdd
     },
-    props: {
-        taskSelected: {
-            type: Object,
-            default: null
-        }
-    },
     data() {
         return {
             taskName: "",
             level: 0
         };
     },
-    computed: mapState(["isShowForm"]),
+    computed: mapState(["isShowForm", "taskSelected"]),
     watch: {
         taskSelected: function(newData, oldData) {
             if (newData !== null) {
@@ -59,16 +53,15 @@ export default {
             }
         }
     },
-    beforeUpdate() {},
     methods: {
-        ...mapActions(["toggleForm"]),
+        ...mapActions(["toggleForm", "handleAddnewTask", "handleEditTaskById"]),
         handleEditTask() {
             let objTaskEdit = {
                 id: this.taskSelected.id,
                 name: this.taskName,
                 level: parseInt(this.level)
             };
-            this.$emit("handleEditTaskById", objTaskEdit);
+            this.handleEditTaskById(objTaskEdit);
             this.handleResetData();
         },
         handleCancel() {
@@ -76,19 +69,16 @@ export default {
             this.handleResetData();
         },
         handleAddnew() {
-            let objTask = {
-                id: uuidv4(),
-                name: this.taskName,
-                level: parseInt(this.level)
-            };
-            if (objTask.name === "") {
-                confirm("This task name is not empty");
+            if (this.taskName.trim()) {
+                let objTask = {
+                    id: uuidv4(),
+                    name: this.taskName.trim(),
+                    level: parseInt(this.level)
+                };
+                this.handleAddnewTask(objTask);
+                this.handleCancel();
             } else {
-                var confirm = confirm("Are you sure to add this task");
-                if (confirm) {
-                    this.$emit("handleAddNewTask", objTask);
-                    this.handleCancel();
-                }
+                alert("please enter value again");
             }
         },
         handleResetData() {

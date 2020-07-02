@@ -1,11 +1,12 @@
 export default {
   CHANGE_TASK(state, newTasks) {
+    localStorage.setItem("tasks", JSON.stringify(newTasks));
     state.listTask = newTasks;
   },
   TOGGLE_FORM(state) {
-    // if (this.isShowForm) {
-    //   this.taskSelected = null;
-    // }
+    if (state.isShowForm) {
+      state.taskSelected = null;
+    }
     state.isShowForm = !state.isShowForm;
   },
   HANDLE_SEARCH(state, strSearch) {
@@ -14,6 +15,12 @@ export default {
   HANDLE_SORT(state, data) {
     state.orderBy = data.orderBy;
     state.orderDir = data.orderDir;
-    // console.log("MUTATIONs SORT", data.orderBy, data.orderDir);
+  },
+  ADD_NEW_TASK(state, task) {
+    state.listTask.push(task);
+  },
+  HANDLE_EDIT(state, taskEdit) {
+    state.isShowForm = true;
+    state.taskSelected = taskEdit;
   }
 };

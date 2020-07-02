@@ -4,5 +4,6 @@ export default {
   isShowForm: false,
   strSearch: "",
   orderBy: "name",
-  orderDir: "asc"
+  orderDir: "asc",
+  taskSelected: null
 };

@@ -5,14 +5,10 @@
             <b-row>
                 <comp-control />
 
-                <comp-form
-                    v-on:handleEditTaskById="handleEditTaskById"
-                    v-on:handleAddNewTask="handleAddNewTask"
-                    v-bind:taskSelected="taskSelected"
-                />
+                <comp-form v-on:handleEditTaskById="handleEditTaskById" />
             </b-row>
 
-            <todo-list-table v-on:handleEdit="handleEdit" />
+            <todo-list-table />
         </b-container>
     </div>
 </template>
@@ -22,6 +18,7 @@ import TodoListTable from "./components/TodoListTable";
 import CompTitle from "./components/CompTitle";
 import CompControl from "./components/CompControl";
 import CompForm from "./components/CompForm";
+import { mapState } from "vuex";
 
 export default {
     name: "App",
@@ -32,11 +29,15 @@ export default {
         CompForm
     },
     data() {
-        return {
-            taskSelected: null
-        };
+        return {};
     },
-
+    computed: mapState(["listTask"]),
+    watch: {
+        listTask: function(newTasks) {
+            var taskString = JSON.stringify(newTasks);
+            localStorage.setItem("tasks", taskString);
+        }
+    },
     methods: {
         handleEditTaskById(taskEdit) {
             let index = this.listTask.findIndex(
@@ -46,13 +47,6 @@ export default {
                 this.listTask.splice(index, 1, taskEdit);
                 this.toggleForm();
             }
-        },
-        handleAddNewTask(task) {
-            this.listTask.push(task);
-        },
-        handleEdit(data) {
-            this.isShowForm = true;
-            this.taskSelected = data;
         }
     }
 };

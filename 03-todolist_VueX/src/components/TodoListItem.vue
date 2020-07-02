@@ -39,16 +39,18 @@ export default {
     },
     methods: {
         ...mapActions({
-            actionHandleDelete: "handleDelete"
+            actionHandleDelete: "handleDelete",
+            actionhandleEdit: "handleEdit"
         }),
         handleDelete() {
             if (confirm("Are you sure to delete this task", this.task.name)) {
                 this.actionHandleDelete(this.task);
-                // this.$emit("handleDelete", this.task);
             }
         },
         handleEdit() {
-            this.$emit("handleEdit", this.task);
+            this.actionhandleEdit(this.task);
+
+            // this.$emit("handleEdit", this.task);
         }
     }
 };
