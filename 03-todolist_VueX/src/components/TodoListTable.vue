@@ -43,20 +43,13 @@ export default {
     data() {
         return {};
     },
-    watch: {
-        // listTask: function(newData) {
-        //     var taskString = JSON.stringify(newData);
-        //     localStorage.setItem("tasks", taskString);
-        // }
-    },
     computed: {
         ...mapGetters({
             listTask: "listTaskSearchSort"
         })
     },
     created() {
-        let tasks = localStorage.getItem("tasks") || []; // Nếu có data => getData  else không có data => set empty Array
-        // console.log("created in table", JSON.parse(tasks));
+        let tasks = localStorage.getItem("tasks") || [];
         this.changeTasks(JSON.parse(tasks));
     },
     methods: {

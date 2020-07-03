@@ -29,9 +29,7 @@ export default {
         }),
         handleSort(orderBy, orderDir) {
             let data = { orderBy, orderDir };
-            console.log("CONTROL SORT", data);
             this.actionHandleSort(data);
-            // this.$emit("handleSort", data);
         }
     }
 };

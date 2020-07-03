@@ -14,11 +14,9 @@ export default {
   },
   handleDelete({ commit, state }, taskDelete) {
     let newListTask = state.listTask.filter(item => item.id != data.id);
-    // this.listTask = newItems;
     commit("CHANGE_TASK", newListTask);
   },
   handleAddnewTask({ commit }, task) {
-    // this.listTask.push(task);
     commit("ADD_NEW_TASK", task);
   },
   handleEdit({ commit }, taskSelected) {
