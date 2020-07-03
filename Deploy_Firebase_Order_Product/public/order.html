@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<!--<![endif]-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>デリバリーについて | しゃぶしゃぶ・すき焼き　わいわい亭</title>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link rel='stylesheet' id='twentythirteen-style-css' href="./assets/css/style.css" type='text/css' media='all' />
+    <link rel='stylesheet' href="./assets/css/add-delivery.css" type='text/css' media='all' />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+</head>
+
+<body id="d-body">
+    <div id="d-wrap">
+        <header class="entry-header">
+            <h1><img class="logo_img" src="https://waiwaitei.unifiedx.net/wp-content/themes/waiwaitei/images/logo2.png"
+                    alt="わいわい亭デリバリーサービス"><br>
+                わいわい亭デリバリーサービス
+            </h1>
+        </header>
+        <div id="d-content" class="site-content" role="main">
+            <article class="d-article">
+                <!-- .entry-header -->
+
+                <div class="d-content">
+                    <p>ご自宅でお召し上がりいただける<strong>しゃぶしゃぶセット</strong>のデリバリーサービスです。ご自宅でお気軽にわいわい亭の味をお楽しみいただけます！</p>
+                    <div class="notice">
+                        <ul>
+                            <li>デリバリメニューは、容器代・宅配料込みのお値段となっております。</li>
+                            <li>デリバリーサービスは<span class="red">狸小路店のみのサービスです</span></li>
+                            <li>宅配範囲は狸小路店から3Km以内が範囲となります。<a
+                                    href="https://www.waiwaitei.com/wp-content/uploads/2020/06/2a85f3c4ecc7d28e89c8ed244ce759b8-1.jpg"
+                                    target="_blank">地図を確認する</a></li>
+                            <li>サイドメニューは、<span class="red">しゃぶしゃぶセットと同時注文</span>でのみ承ります。</li>
+                            <li>ご注文の受付時間はご利用いただく<strong>当日の16時まで</strong>とさせていただき、<strong>17時～18時半位の間のご希望のお時間</strong>でお届け致します。
+                            </li>
+                            <li>ご注文はお電話でも承っております。数量が多いご注文や、直接お電話でご注文いただきたい場合は下記お電話番号よりご注文下さい。<br>
+                                <strong>わいわい亭 狸小路店：<a href="tel:011-232-5580">011-232-5580</a></strong></li>
+                        </ul>
+                    </div>
+                    <h3>キャンペーン情報</h3>
+                    <p><strong>今ならデリバリー開始記念として各500円引きでご提供致します！</strong></p>
+                    <ul class="format" style="margin-bottom:2rem;">
+                        <li>◆デリバリー豚しゃぶセット　　<s>3996円</s> ⇒ <span class="red">3456円</span></li>
+                        <li>◆デリバリー牛しゃぶセット　　<s>4536円</s> ⇒ <span class="red">3996円</span></li>
+                    </ul>
+                    <h2 class="sub_line">しゃぶしゃぶセット</h2>
+                    <h3>セット内容　お肉300g　野菜盛り合わせセット　自家製しょうゆダレ＆ゴマダレ</h3>
+                    <table class="d-table" autocomplete="on">
+                        <tbody>
+                            <tr>
+                                <td rowspan="4" class="img-box"><img src="./assets/images/delivery/menu01.jpg"
+                                        alt="デリバリー豚しゃぶセット及び牛しゃぶセットイメージ画像" width="240">
+                                </td>
+
+                                <td class="menu-name">
+                                    <span class="left-block">デリバリー豚しゃぶセット</span>
+                                    <span class="right-block">
+                                        <span class="price red">3456</span>&nbsp;円
+                                        <select name="quantity1" data-price="3456" class="amount">
+                                            <option value="数量0">-</option>
+                                            <option value="数量1">1</option>
+                                            <option value="数量2">2</option>
+                                            <option value="数量3">3</option>
+                                            <option value="数量4">4</option>
+                                            <option value="数量5">5</option>
+                                        </select>
+                                    </span>
+
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="menu-name"><span class="left-block">デリバリー牛しゃぶセット</span><span
+                                        class="right-block"><span class="price red">3996</span>&nbsp;円
+                                        <select name="quantity2" data-price="3996" class="amount">
+                                            <option value="数量0">-</option>
+                                            <option value="数量1">1</option>
+                                            <option value="数量2">2</option>
+                                            <option value="数量3">3</option>
+                                            <option value="数量4">4</option>
+                                            <option value="数量5">5</option>
+                                        </select>
+                                    </span>
+                            </tr>
+                            <tr>
+                                <td class="menu-name">
+                                    <span class="left-block">豚肉追加(150g)</span>
+                                    <span class="right-block">
+                                        <span class="price">864</span>&nbsp;円
+                                        <select name="quantity3" data-price="864" class="amount">
+                                            <option value="数量0">-</option>
+                                            <option value="数量1">1</option>
+                                            <option value="数量2">2</option>
+                                            <option value="数量3">3</option>
+                                            <option value="数量4">4</option>
+                                            <option value="数量5">5</option>
+                                        </select></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="menu-name"><span class="left-block">牛肉追加(150g)</span><span
+                                        class="right-block"><span class="price">1080</span>&nbsp;円<select
+                                            name="quantity4" data-price="1080" class="amount">
+                                            <option value="数量0">-</option>
+                                            <option value="数量1">1</option>
+                                            <option value="数量2">2</option>
+                                            <option value="数量3">3</option>
+                                            <option value="数量4">4</option>
+                                            <option value="数量5">5</option>
+                                        </select></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3>サイドメニュー&nbsp;(しゃぶしゃぶセットと同時注文のみ)</h3>
+                    <table class="d-table">
+                        <tbody>
+                            <tr>
+                                <td class="img-box" rowspan="2"><img src="./assets/images/delivery/menu02.jpg"
+                                        alt="すき焼き丼" width="200">
+                                </td>
+                                <td class="menu-name"><span class="left-block">すき焼き丼</span><span
+                                        class="right-block"><span class="price">756</span>&nbsp;円<select
+                                            name="quantity5" data-price="756" class="amount">
+                                            <option value="数量0">-</option>
+                                            <option value="数量1">1</option>
+                                            <option value="数量2">2</option>
+                                            <option value="数量3">3</option>
+                                            <option value="数量4">4</option>
+                                            <option value="数量5">5</option>
+                                        </select></span></td>
+                            </tr>
+                            <tr>
+                                <td class="menu-name"><span class="left-block">すき焼き丼（ごはん大盛り）</span><span
+                                        class="right-block"><span class="price">810</span>&nbsp;円<select
+                                            name="quantity6" data-price="810" class="amount">
+                                            <option value="数量0">-</option>
+                                            <option value="数量1">1</option>
+                                            <option value="数量2">2</option>
+                                            <option value="数量3">3</option>
+                                            <option value="数量4">4</option>
+                                            <option value="数量5">5</option>
+                                        </select></span></td>
+                            </tr>
+                            <tr>
+                                <td class="img-box" rowspan="2"><img src="./assets/images/delivery/menu03.jpg"
+                                        alt="豚の角煮丼" width="200">
+                                </td>
+                                <td class="menu-name"><span class="left-block">豚の角煮丼</span><span
+                                        class="right-block"><span class="price">756</span>&nbsp;円<select
+                                            name="quantity7" data-price="756" class="amount">
+                                            <option value="数量0">-</option>
+                                            <option value="数量1">1</option>
+                                            <option value="数量2">2</option>
+                                            <option value="数量3">3</option>
+                                            <option value="数量4">4</option>
+                                            <option value="数量5">5</option>
+                                        </select></span></td>
+                            </tr>
+                            <tr>
+                                <td class="menu-name"><span class="left-block">豚の角煮丼（ごはん大盛り）</span><span
+                                        class="right-block"><span class="price">810</span>&nbsp;円<select
+                                            name="quantity8" data-price="810" class="amount">
+                                            <option value="数量0">-</option>
+                                            <option value="数量1">1</option>
+                                            <option value="数量2">2</option>
+                                            <option value="数量3">3</option>
+                                            <option value="数量4">4</option>
+                                            <option value="数量5">5</option>
+                                        </select></span></td>
+                            </tr>
+                            <tr>
+                                <td class="img-box" rowspan="2"><img src="./assets/images/delivery/menu04.jpg"
+                                        alt="しょうが焼き丼" width="200">
+                                </td>
+                                <td class="menu-name"><span class="left-block">しょうが焼き丼 </span><span
+                                        class="right-block"><span class="price">756</span>&nbsp;円<select
+                                            name="quantity9" data-price="756" class="amount">
+                                            <option value="数量0">-</option>
+                                            <option value="数量1">1</option>
+                                            <option value="数量2">2</option>
+                                            <option value="数量3">3</option>
+                                            <option value="数量4">4</option>
+                                            <option value="数量5">5</option>
+                                        </select></span></td>
+                            </tr>
+                            <tr>
+                                <td class="menu-name"><span class="left-block">しょうが焼き丼（ごはん大盛り）</span><span
+                                        class="right-block"><span class="price">810</span>&nbsp;円<select
+                                            name="quantity10" data-price="810" class="amount">
+                                            <option value="数量0">-</option>
+                                            <option value="数量1">1</option>
+                                            <option value="数量2">2</option>
+                                            <option value="数量3">3</option>
+                                            <option value="数量4">4</option>
+                                            <option value="数量5">5</option>
+                                        </select></span></td>
+                            </tr>
+                            <tr>
+                                <td class="img-box"><img src="./assets/images/delivery/menu05.jpg" alt="パキスタンカレー"
+                                        width="200">
+                                </td>
+                                <td class="menu-name"><span class="left-block">パキスタンカレー（ごはん300g）</span><span
+                                        class="right-block"><span class="price">756</span>&nbsp;円<select
+                                            name="quantity11" data-price="756" class="amount">
+                                            <option value="数量0">-</option>
+                                            <option value="数量1">1</option>
+                                            <option value="数量2">2</option>
+                                            <option value="数量3">3</option>
+                                            <option value="数量4">4</option>
+                                            <option value="数量5">5</option>
+                                        </select></span></td>
+                            </tr>
+                            <tr>
+                                <td class="img-box"><img src="./assets/images/delivery/menu06.jpg" alt="スタミナ肉うどん"
+                                        width="200">
+                                </td>
+                                <td class="menu-name"><span class="left-block">スタミナ肉うどん（麺250g）</span><span
+                                        class="right-block"><span class="price">756</span>&nbsp;円<select
+                                            name="quantity12" data-price="756" class="amount">
+                                            <option value="数量0">-</option>
+                                            <option value="数量1">1</option>
+                                            <option value="数量2">2</option>
+                                            <option value="数量3">3</option>
+                                            <option value="数量4">4</option>
+                                            <option value="数量5">5</option>
+                                        </select></span></td>
+                            </tr>
+
+                            <tr>
+                                <td class="img-box"><img src="./assets/images/delivery/menu07.jpg" alt="グリーンカレー"
+                                        width="200">
+                                </td>
+                                <td class="menu-name"><span class="left-block">グリーンカレー</span>
+                                    <span class="right-block">
+                                        <span class="price">1080</span>&nbsp;円
+
+                                        <select id="quantity13" name="quantity13" data-price="1080" class="amount">
+                                            <option value="数量0">-</option>
+                                            <option value="数量1">1</option>
+                                            <option value="数量2">2</option>
+                                            <option value="数量3">3</option>
+                                            <option value="数量4">4</option>
+                                            <option value="数量5">5</option>
+                                        </select>
+                                    </span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="total">
+                        <dl>
+                            <dt>お支払い金額</dt>
+                            <span class="tax">(税込)</span>
+                            <dd><input type="text" class="total_Price">&nbsp;円</dd>
+                        </dl>
+                    </div>
+                    <h2 class="sub_line">お届け先のご入力</h2>
+                    <form method="post" class="d-form" id="d-form" autocomplete="on">
+
+                        <label for="name">お名前<span class="required">（必須）</span></label>
+                        <input type="text" id="name" name="name">
+
+
+                        <label for="adrress">ご住所(要：枝番号、マンション名、部屋番号)<span class="required">（必須）</span></label><input
+                            class="address" type="text" id="address" name="address" style="width:100%">
+                        <label for="tel">お電話番号<span class="required">（必須）</span></label><input class="tel" type="tel"
+                            id="tel" name="tel" maxlength="11">
+                        <label for="date">配達日<span class="required">（必須）</span></label><input class="d-date" type="text"
+                            id="date" name="date">
+
+                        <label for="time">お届け時間<span class="required">（必須）</span></label>
+                        <select id="time" name="time">
+                            <option value="">Select...</option>
+                            <option value="時間帯1">17:00～17:30</option>
+                            　 <option value="時間帯2">17:30～18:00</option>
+                            　 <option value="時間帯3">18:00～18:30</option>
+                        </select>
+
+                    </form>
+                    <label class="error_item item">サイドメニューはしゃぶしゃぶセットと同時注文の時のみ可能です</label>
+                    <div class="d-send-button" id="d-send-button">
+                        <a role="button">注文確認画面へ</a>
+                    </div>
+
+                </div><!-- .entry-content -->
+
+                <footer class="entry-meta">
+                </footer><!-- .entry-meta -->
+            </article><!-- #post -->
+
+
+            <div id="comments" class="comments-area">
+
+            </div><!-- #comments -->
+        </div><!-- #content -->
+        <footer id="colophon" class="site-footer" role="contentinfo">
+            <!--▼フッターエリア-->
+            <div id="footer">
+                <div class="footer_menu">
+                    <a href="https://www.waiwaitei.com//reservation/" rel="nofollow">お店のご予約</a> |
+                    <a href="https://www.waiwaitei.com//contact/" rel="nofollow">お問い合わせ</a> |
+                    <a href="https://www.waiwaitei.com/sitemap/">サイトマップ</a>
+                </div>
+                <div class="footer_info">
+                    <div class="footer_info_child">
+                        <h3><a href="https://waiwaitei.unifiedx.net/tanuki/tanuki-top/">札幌狸小路店</a></h3>
+                        <div>札幌市中央区南2条西4丁目（清水ビル6F）<br>(すすきのまで徒歩5分)<br />
+                            Tel：011-232-5580<br />営業時間 17:00～24:00</div>
+                    </div>
+                    <div class="footer_info_child">
+                        <h3><a href="https://waiwaitei.unifiedx.net/obihiro/obihiro-top/">帯広店</a></h3>
+                        <div>帯広市西2条南9丁目（シノカワビル5F）<br />
+                            Tel：0155-26-2333<br />営業時間 17:00～22:00</div>
+                    </div>
+                </div>
+                <div class="copy">
+                    <P>COPYRIGHT &copy; しゃぶしゃぶ・すき焼き&nbsp;わいわい亭　ALL RIGHTS RESERVED.</P>
+                </div>
+            </div>
+            <!--▲フッターエリア-->
+        </footer><!-- #colophon -->
+
+    </div><!-- #wrap -->
+    <script src="./assets/js/order.js"></script>
+</body>
+
+</html>
