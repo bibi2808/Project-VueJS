@@ -17,5 +17,18 @@ export default {
       item => item.product.id !== dataDelete.product.id
     );
     commit("DELETE_CART", newListCarts);
+  },
+  actUpdateQuantity({ commit, state }, { cartUpdate, quantity }) {
+    const index = state.listCarts.findIndex(item => {
+      return item.product.id === cartUpdate.product.id;
+    });
+    if (index !== -1) {
+      let data = {
+        index,
+        quantity,
+        isReplace: true
+      };
+      commit("CHANGE_QUANTITY", data);
+    }
   }
 };

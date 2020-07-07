@@ -9,7 +9,7 @@
 
                 <cart-wrapper />
             </div>
-            <notifications group="noti" position="top right" />d
+            <notifications group="noti" position="top right" />
         </div>
     </div>
 </template>

@@ -11,15 +11,15 @@ import moduleCart from "./cart";
 import moduleProduct from "./product";
 
 // giống như WATCHER dùng để theo dõi thay đổi của state khi kích hoạt MUTATIONS
-const myPlugin = store => {
-  // console.log("Myplugin", store);
+const localStorage = store => {
   store.subscribe((mutation, state) => {
-    // console.log("Subscrible is running", mutation, "State is ", state);
+    // Save data
+    window.localStorage.setItem("cart", JSON.stringify(state.cart));
   });
 };
 
 const store = new Vuex.Store({
-  strict: process.env.NODE_ENV !== "production",
+  strict: process.env.NODE_ENV !== "production", // không cho phép thay đổi state bên ngoài mutations, chỉ được phép thay đổi state khi sử dụng mutations
   state,
   getters,
   actions,
@@ -28,10 +28,7 @@ const store = new Vuex.Store({
     cart: moduleCart,
     product: moduleProduct
   },
-  plugins: [myPlugin]
+  plugins: [localStorage]
 });
-// console.log("Module product", store.state.product);
-// console.log("module cart", store.state.cart);
-// store.commit("product/increment", 9999);
 
 export default store;

@@ -24,7 +24,11 @@
 <script>
 import { toCurrency, validateQuantity } from "../helper";
 import { mapActions } from "vuex";
-import { NOTI_ACT_DELETE } from "../constant/config";
+import {
+    NOTI_ACT_DELETE,
+    NOTI_GREATER_THAN_ONE,
+    NOTI_ACT_UPDATE
+} from "../constant/config";
 export default {
     name: "cart-body-item",
     props: {
@@ -49,7 +53,8 @@ export default {
     methods: {
         ...mapActions({
             actDeleteCart: "cart/handleDeleteCart",
-            setLoading: "setLoading"
+            setLoading: "setLoading",
+            actUpdateQuantity: "cart/actUpdateQuantity"
         }),
         handleDelete() {
             if (confirm("Are you sure to delete this item ?")) {
@@ -58,10 +63,23 @@ export default {
             }
         },
         handleUpdate(event) {
-            // open loading
             this.setLoading(true);
             setTimeout(() => {
-                // close loading
+                let quantity = event.target.value;
+                const check = validateQuantity(quantity);
+                if (check) {
+                    // 1.change quantity of product
+                    // 2.update cart
+                    let data = {
+                        cartUpdate: this.cart,
+                        quantity: parseInt(quantity)
+                    };
+                    this.actUpdateQuantity(data);
+                    this.$notify(NOTI_ACT_UPDATE);
+                } else {
+                    event.target.value = this.cart.quantity;
+                    this.$notify(NOTI_GREATER_THAN_ONE);
+                }
                 this.setLoading(false);
             }, 1000);
         }

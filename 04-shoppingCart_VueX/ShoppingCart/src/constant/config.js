@@ -1,6 +1,4 @@
 export const NOTI_EMPTY_PRODUCT = "Empty product in your cart";
-export const NOTI_ACT_UPDATE = "Updated successfull !!";
-// export const NOTI_ACT_DELETE = "Deleted successfull !!";
 
 export const NOTI_GREATER_THAN_ONE = {
   group: "noti",
@@ -23,6 +21,15 @@ export const NOTI_ACT_DELETE = {
   type: "warn",
   title: "Success!",
   text: "Deleted successfully !",
+  duration: 3000,
+  speed: 1000
+};
+
+export const NOTI_ACT_UPDATE = {
+  group: "noti",
+  type: "success",
+  title: "Success!",
+  text: "Updated successfully !",
   duration: 3000,
   speed: 1000
 };
