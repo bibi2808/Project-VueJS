@@ -2,8 +2,8 @@
     <div class="comp-title">
         <div class="page-header">
             <h1>
-                Shopping Cart
-                <small>VueJS + VueX</small>
+                <!-- Shopping Cart -->
+                <!-- <small>VueJS + VueX</small> -->
             </h1>
         </div>
     </div>

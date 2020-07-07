@@ -6,7 +6,7 @@
                     <h1 class="panel-title">List Products</h1>
                 </div>
                 <div class="panel-body" id="list-product">
-                    <product-item />
+                    <product-item v-for="item in products" :key="item.id" :product="item" />
                 </div>
             </div>
         </div>
@@ -14,12 +14,19 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import ProductItem from "./ProductItem";
 export default {
     name: "product-list",
     data() {
         return {};
     },
+    computed: {
+        ...mapState({
+            products: state => state.product.productList
+        })
+    },
+    methods: {},
     components: {
         ProductItem
     }

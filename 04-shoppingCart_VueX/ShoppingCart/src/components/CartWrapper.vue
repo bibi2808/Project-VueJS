@@ -14,7 +14,7 @@
                 </table>
             </div>
         </div>
-        <notify />
+        <!-- <notify /> -->
     </div>
 </template>
 
@@ -22,7 +22,9 @@
 import CartHeader from "./CartHeader";
 import CartBodyTable from "./CartBodyTable";
 import CartFooter from "./CartFooter";
-import Notify from "./Notify";
+
+import { mapGetters } from 'vuex';
+// import Notify from "./Notify";
 export default {
     name: "cart-wrapper",
     data() {
@@ -31,8 +33,8 @@ export default {
     components: {
         CartHeader,
         CartBodyTable,
-        CartFooter,
-        Notify
+        CartFooter
+        // Notify
     }
 };
 </script>

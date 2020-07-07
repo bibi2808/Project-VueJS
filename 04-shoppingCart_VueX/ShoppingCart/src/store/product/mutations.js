@@ -1,5 +1,5 @@
 export default {
-  increment: state => {
-    console.log("mutation product", state);
+  increment: (state, payload) => {
+    console.log("mutation product", state, "payload", payload);
   }
 };

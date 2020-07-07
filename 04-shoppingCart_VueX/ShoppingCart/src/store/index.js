@@ -10,7 +10,16 @@ import actions from "./actions";
 import moduleCart from "./cart";
 import moduleProduct from "./product";
 
+// giống như WATCHER dùng để theo dõi thay đổi của state khi kích hoạt MUTATIONS
+const myPlugin = store => {
+  // console.log("Myplugin", store);
+  store.subscribe((mutation, state) => {
+    // console.log("Subscrible is running", mutation, "State is ", state);
+  });
+};
+
 const store = new Vuex.Store({
+  strict: process.env.NODE_ENV !== "production",
   state,
   getters,
   actions,
@@ -18,11 +27,11 @@ const store = new Vuex.Store({
   modules: {
     cart: moduleCart,
     product: moduleProduct
-  }
+  },
+  plugins: [myPlugin]
 });
-console.log("Store", store);
-console.log("Store-1", store.state);
-console.log("Store-2", store.state.cart.countCart);
-console.log("Store state", store.commit("increment"));
+// console.log("Module product", store.state.product);
+// console.log("module cart", store.state.cart);
+// store.commit("product/increment", 9999);
 
 export default store;
