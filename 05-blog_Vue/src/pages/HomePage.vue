@@ -1,21 +1,18 @@
 <template>
-    <div id="app">
-        <comp-menu />
+    <div>
         <transition name="slide-fade" mode="out-in">
             <router-view></router-view>
         </transition>
+        <slider />
     </div>
 </template>
 
 <script>
-import CompMenu from "./components/Menu";
+import Slider from "../components/Slider";
 export default {
-    name: "app",
-    data() {
-        return {};
-    },
+    name: "home-page",
     components: {
-        CompMenu
+        Slider
     }
 };
 </script>
