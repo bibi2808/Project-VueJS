@@ -4,7 +4,7 @@ export default {
     const index = state.listCarts.findIndex(item => {
       return item.product.id === data.product.id;
     });
-
+    console.log("index", index);
     if (index === -1) {
       commit("BUY_PRODUCT", data);
     } else {
