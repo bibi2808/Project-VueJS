@@ -1,4 +1,4 @@
-# blog
+# blog-vue-router
 
 > A Vue.js project
 

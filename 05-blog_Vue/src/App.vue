@@ -1,35 +1,60 @@
 <template>
-    <div id="app">
-        <comp-menu />
-        <transition name="slide-fade" mode="out-in">
-            <router-view></router-view>
-        </transition>
-    </div>
+  <div id="app">
+    <img src="./assets/logo.png">
+    <h1>{{ msg }}</h1>
+    <h2>Essential Links</h2>
+    <ul>
+      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
+      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
+      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
+      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
+    </ul>
+    <h2>Ecosystem</h2>
+    <ul>
+      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
+      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
+      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
+      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
+    </ul>
+  </div>
 </template>
 
 <script>
-import CompMenu from "./components/Menu";
 export default {
-    name: "app",
-    data() {
-        return {};
-    },
-    components: {
-        CompMenu
+  name: 'app',
+  data () {
+    return {
+      msg: 'Welcome to Your Vue.js App'
     }
-};
+  }
+}
 </script>
 
-<style>
-.slide-fade-enter-active {
-    transition: all 0.3s ease;
+<style lang="scss">
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
-.slide-fade-leave-active {
-    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+
+h1, h2 {
+  font-weight: normal;
 }
-.slide-fade-enter, .slide-fade-leave-to
-/* Trước 2.1.8 thì dùng .slide-fade-leave-active */ {
-    transform: translateX(10px);
-    opacity: 0;
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+a {
+  color: #42b983;
 }
 </style>
