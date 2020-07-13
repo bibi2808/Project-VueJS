@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+            <router-link class="navbar-brand" to="/">Local Brand</router-link>
             <button
                 class="navbar-toggler navbar-toggler-right"
                 type="button"
@@ -42,7 +42,8 @@ export default {
                 { to: "/", text: "Home", activeClass: "active" },
                 { to: "/about-us", text: "About", activeClass: "active" },
                 { to: "/", text: "Post", activeClass: "active" },
-                { to: "/contact", text: "Contact", activeClass: "active" }
+                { to: "/contact", text: "Contact", activeClass: "active" },
+                { to: "/login", text: "Login", activeClass: "active" }
             ]
         };
     }

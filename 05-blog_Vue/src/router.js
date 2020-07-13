@@ -5,6 +5,10 @@ import HomePage from "./pages/HomePage";
 import AboutUs from "./pages/AboutUs";
 import BlogDetail from "./pages/BlogDetail";
 import Contact from "./pages/Contact";
+import Login from "./pages/Login";
+import NotFoundPage from "./pages/NotFoundPage";
+
+import store from "./store/";
 
 Vue.use(VueRouter);
 const routes = [
@@ -21,12 +25,27 @@ const routes = [
   {
     path: "/blog-detail/:title.:id",
     name: "blog-detail",
-    component: BlogDetail
+    component: BlogDetail,
+    beforeEnter: (to, from, next) => {
+      if (store.isLogin) {
+        next();
+      }
+    }
   },
   {
     path: "/contact",
     name: "contact",
     component: Contact
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: Login
+  },
+  {
+    path: "*",
+    name: "not-found-page",
+    component: NotFoundPage
   }
 ];
 
