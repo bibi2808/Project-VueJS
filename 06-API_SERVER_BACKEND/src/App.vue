@@ -1,12 +1,14 @@
 <template>
     <div id="app">
-        <app-header />
+        <app-header v-if="isRenderHeader" />
         <main>
             <div class="container">
-                <router-view></router-view>
+                <transition name="fade" mode="out-in">
+                    <router-view></router-view>
+                </transition>
             </div>
         </main>
-        <app-footer />
+        <app-footer v-if="isRenderFooter" />
     </div>
 </template>
 
@@ -18,6 +20,20 @@ export default {
     data() {
         return {};
     },
+    computed: {
+        isRenderHeader() {
+            var arrRouter = ["login", "register"];
+            var routerName = this.$route.name;
+            if (arrRouter.indexOf(routerName) !== -1) return false;
+            return true;
+        },
+        isRenderFooter() {
+            var arrRouter = ["home-page", "post-detail"];
+            var routerName = this.$route.name;
+            if (arrRouter.indexOf(routerName) !== -1) return false;
+            return true;
+        }
+    },
     components: {
         AppHeader,
         AppFooter
@@ -26,4 +42,12 @@ export default {
 </script>
 
 <style>
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.3s ease;
+}
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
 </style>

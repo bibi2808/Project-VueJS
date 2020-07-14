@@ -5,7 +5,7 @@
                 <div class="ass1-head-user__content">
                     <div class="ass1-head-user__image">
                         <a href="#">
-                            <img src="../../dist/images/cat-1634369_1920.jpg" alt />
+                            <img src="images/cat-1634369_1920.jpg" alt />
                         </a>
                     </div>
                     <div class="ass1-head-user__info">
@@ -13,7 +13,7 @@
                             <div class="ass1-head-user__name">
                                 <span>Trần Công Lực</span>
                                 <i>
-                                    <img src="../../dist/fonts/emotion/svg/Verified.svg" alt />
+                                    <img src="fonts/emotion/svg/Verified.svg" alt />
                                 </i>
                             </div>
                             <div class="w-100"></div>
@@ -55,7 +55,7 @@
                     <div class="ass1-section">
                         <div class="ass1-section__head">
                             <a href="single_post.html" class="ass1-section__avatar ass1-avatar">
-                                <img src="../../dist/images/avatar-02.png" alt />
+                                <img src="images/avatar-02.png" alt />
                             </a>
                             <div>
                                 <a href="#" class="ass1-section__name">Thanos</a>
@@ -66,7 +66,7 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et inventore obcaecati eum deserunt ut, aperiam quas! Placeat blanditiis consequatur, deserunt facere iusto amet a ad suscipit laudantium unde quidem perferendis!</p>
                             <div class="ass1-section__image">
                                 <a href="single_post.html">
-                                    <img src="../../dist/images/microphone-1209816_1920.jpg" alt />
+                                    <img src="images/microphone-1209816_1920.jpg" alt />
                                 </a>
                             </div>
                         </div>
@@ -92,7 +92,7 @@
                     <div class="ass1-section">
                         <div class="ass1-section__head">
                             <a href="single_post.html" class="ass1-section__avatar ass1-avatar">
-                                <img src="../../dist/images/avatar-02.png" alt />
+                                <img src="images/avatar-02.png" alt />
                             </a>
                             <div>
                                 <a href="#" class="ass1-section__name">Thanos</a>
@@ -103,7 +103,7 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et inventore obcaecati eum deserunt ut, aperiam quas! Placeat blanditiis consequatur, deserunt facere iusto amet a ad suscipit laudantium unde quidem perferendis!</p>
                             <div class="ass1-section__image">
                                 <a href="single_post.html">
-                                    <img src="../../dist/images/blog-rating.png" alt />
+                                    <img src="images/blog-rating.png" alt />
                                 </a>
                             </div>
                         </div>
@@ -129,7 +129,7 @@
                     <div class="ass1-section">
                         <div class="ass1-section__head">
                             <a href="single_post.html" class="ass1-section__avatar ass1-avatar">
-                                <img src="../../dist/images/avatar-02.png" alt />
+                                <img src="images/avatar-02.png" alt />
                             </a>
                             <div>
                                 <a href="#" class="ass1-section__name">Thanos</a>
@@ -140,7 +140,7 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et inventore obcaecati eum deserunt ut, aperiam quas! Placeat blanditiis consequatur, deserunt facere iusto amet a ad suscipit laudantium unde quidem perferendis!</p>
                             <div class="ass1-section__image">
                                 <a href="single_post.html">
-                                    <img src="../../dist/images/dress_owesom.jpg" alt />
+                                    <img src="images/dress_owesom.jpg" alt />
                                 </a>
                             </div>
                         </div>
@@ -166,7 +166,7 @@
                     <div class="ass1-section">
                         <div class="ass1-section__head">
                             <a href="single_post.html" class="ass1-section__avatar ass1-avatar">
-                                <img src="../../dist/images/avatar-02.png" alt />
+                                <img src="images/avatar-02.png" alt />
                             </a>
                             <div>
                                 <a href="#" class="ass1-section__name">Thanos</a>
@@ -177,7 +177,7 @@
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et inventore obcaecati eum deserunt ut, aperiam quas! Placeat blanditiis consequatur, deserunt facere iusto amet a ad suscipit laudantium unde quidem perferendis!</p>
                             <div class="ass1-section__image">
                                 <a href="single_post.html">
-                                    <img src="../../dist/images/frog-1530803_960_720.jpg" alt />
+                                    <img src="images/frog-1530803_960_720.jpg" alt />
                                 </a>
                             </div>
                         </div>
@@ -206,7 +206,7 @@
 
 <script>
 export default {
-    name: "user"
+    name: "user-page-info"
 };
 </script>
 

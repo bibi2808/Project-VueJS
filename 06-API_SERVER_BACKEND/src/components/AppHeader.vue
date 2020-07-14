@@ -3,9 +3,10 @@
         <div class="ass1-header">
             <div class="container">
                 <a href="index.html" class="ass1-logo">BIBI ZINGME</a>
+
                 <app-navigation />
 
-                <app-search />
+                <app-header-search />
 
                 <a href="#" class="ass1-header__btn-upload ass1-btn">
                     <i class="icon-Upvote"></i> Upload
@@ -17,13 +18,22 @@
 </template>
 
 <script>
+import $ from "jquery";
 import AppNavigation from "./AppNavigation";
-import AppSearch from "./AppSearch";
+import AppHeaderSearch from "./AppHeaderSearch";
 export default {
     name: "app-header",
+    mounted() {
+        $(".ass1-header__menu li > a").click(function(e) {
+            $(this)
+                .parent()
+                .find(".ass1-header__nav")
+                .slideToggle(300, "swing");
+        });
+    },
     components: {
         AppNavigation,
-        AppSearch
+        AppHeaderSearch
     }
 };
 </script>

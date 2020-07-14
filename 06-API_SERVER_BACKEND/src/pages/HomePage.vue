@@ -1,17 +1,22 @@
 <template>
-    <div class>
-        <h1>home</h1>
+    <div class="row">
+        <div class="col-lg-8">
+            <post-list />
+        </div>
+        <div class="col-lg-4">
+            <side-bar />
+        </div>
     </div>
 </template>
 
 <script>
 import PostList from "../components/PostList";
-import Sidebar from "../components/Sidebar";
+import SideBar from "../components/SideBar";
 export default {
     name: "home-page",
     components: {
         PostList,
-        Sidebar
+        SideBar
     }
 };
 </script>

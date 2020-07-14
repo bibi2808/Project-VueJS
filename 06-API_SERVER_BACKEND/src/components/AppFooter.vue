@@ -1,26 +1,16 @@
 <template>
-    <main>
-        <div class="container">
-            <!--sections-->
-            <div class="row">
-                <div class="col-lg-8">
-                    <post-list />
-                </div>
-                <side-bar />
+    <footer>
+        <div class="ass1-footer">
+            <div class="container">
+                <p class="text-center">Troll LOL9LOL</p>
             </div>
         </div>
-    </main>
+    </footer>
 </template>
 
 <script>
-import PostList from "./PostList";
-import SideBar from "./SideBar";
 export default {
-    name: "app-footer",
-    components: {
-        PostList,
-        SideBar
-    }
+    name: "app-footer"
 };
 </script>
 

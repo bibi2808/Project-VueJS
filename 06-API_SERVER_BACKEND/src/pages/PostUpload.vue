@@ -25,7 +25,10 @@
                             </form>
                             <div class="ass1-section__image">
                                 <a href="#">
-                                    <img src="images/no_image_available.jpg" alt="default" />
+                                    <img
+                                        src="../../dist/images/no_image_available.jpg"
+                                        alt="default"
+                                    />
                                 </a>
                             </div>
                             <a

@@ -1,10 +1,14 @@
 <template>
-    <div>
-        <post-item-head />
+    <div class="ass1-section__list">
+        <div class="ass1-section__item">
+            <div class="ass1-section">
+                <post-item-head />
 
-        <post-item-content />
+                <post-item-content />
 
-        <post-item-footer />
+                <post-item-footer />
+            </div>
+        </div>
     </div>
 </template>
 

@@ -16,7 +16,7 @@
 
 <script>
 export default {
-    name: "app-search"
+    name: "app-header-search"
 };
 </script>
 

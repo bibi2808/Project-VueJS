@@ -23,21 +23,25 @@ const routes = [
     path: "/login",
     name: "login",
     component: Login
+    // beforeEnter: ifNotAuthenticated
   },
   {
     path: "/register",
     name: "register",
     component: Register
+    // beforeEnter: ifNotAuthenticated
   },
   {
     path: "/user/:id",
     name: "user-page",
     component: UserPage
+    // beforeEnter: ifAuthenticated
   },
   {
-    path: "/user::id/profile",
+    path: "/user/:id/profile",
     name: "user-profile",
     component: UserProfile
+    // beforeEnter: ifAuthenticated
   },
   {
     path: "/user/:id/password",
@@ -53,8 +57,13 @@ const routes = [
     path: "/upload",
     name: "upload",
     component: PostUpload
+    // beforeEnter: ifAuthenticated
   },
-
+  // {
+  //   path: "/search",
+  //   name: "search",
+  //   component: Search
+  // },
   {
     path: "*",
     name: "not-found-page",
