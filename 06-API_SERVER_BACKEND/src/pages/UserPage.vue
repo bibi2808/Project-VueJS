@@ -11,7 +11,7 @@
                     <div class="ass1-head-user__info">
                         <div class="ass1-head-user__info-head">
                             <div class="ass1-head-user__name">
-                                <span>Trần Công Lực</span>
+                                <span>TuanDA</span>
                                 <i>
                                     <img src="../../dist/fonts/emotion/svg/Verified.svg" alt />
                                 </i>

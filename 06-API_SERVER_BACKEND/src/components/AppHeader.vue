@@ -2,7 +2,7 @@
     <header>
         <div class="ass1-header">
             <div class="container">
-                <a href="index.html" class="ass1-logo">BIBI ZINGME</a>
+                <router-link to="/" class="ass1-logo">BIBI ZINGME</router-link>
 
                 <app-navigation />
 
@@ -30,6 +30,9 @@ export default {
                 .find(".ass1-header__nav")
                 .slideToggle(300, "swing");
         });
+        $('.ass1-header__nav ul li > a').click(function(e){
+            $(this).parents('.ass1-header__nav').slideUp(300,"swing");
+        })
     },
     components: {
         AppNavigation,

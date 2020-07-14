@@ -2,7 +2,7 @@
     <footer>
         <div class="ass1-footer">
             <div class="container">
-                <p class="text-center">Troll LOL9LOL</p>
+                <p class="text-center">Let Me Love You</p>
             </div>
         </div>
     </footer>

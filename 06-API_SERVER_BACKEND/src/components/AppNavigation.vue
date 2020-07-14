@@ -6,147 +6,8 @@
                 <div class="ass1-header__nav" style="display: none;">
                     <div class="container">
                         <ul>
-                            <li>
-                                <a href="index.html">Funny</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Animals</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Anime & Mâng</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Awesome</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Basketball</a>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <a href="index.html">Car</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Comic</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Cosplay</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Countryballs</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Classical Art Memes</a>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <a href="index.html">Girl</a>
-                            </li>
-                            <li>
-                                <a href="index.html">History</a>
-                            </li>
-                            <li>
-                                <a href="index.html">K-POP</a>
-                            </li>
-                            <li>
-                                <a href="index.html">V-POP</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Pokémon</a>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <a href="index.html">School</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Star war</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Coder</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Travel</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Sport</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="ass1-header__menu-transition"></div>
-                </div>
-            </li>
-            <li class="active">
-                <a href="index.html">Hot</a>
-                <div class="ass1-header__nav" style="display: none;">
-                    <div class="container">
-                        <ul>
-                            <li>
-                                <a href="index.html">Funny</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Animals</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Anime & Mâng</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Awesome</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Basketball</a>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <a href="index.html">Car</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Comic</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Cosplay</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Countryballs</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Classical Art Memes</a>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <a href="index.html">Girl</a>
-                            </li>
-                            <li>
-                                <a href="index.html">History</a>
-                            </li>
-                            <li>
-                                <a href="index.html">K-POP</a>
-                            </li>
-                            <li>
-                                <a href="index.html">V-POP</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Pokémon</a>
-                            </li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <a href="index.html">School</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Star war</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Coder</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Travel</a>
-                            </li>
-                            <li>
-                                <a href="index.html">Sport</a>
+                            <li v-for="item in categories" :key="item.id">
+                                <router-link :to="getLinkCategory(item)">{{ item.text}}</router-link>
                             </li>
                         </ul>
                     </div>
@@ -158,10 +19,41 @@
 </template>
 
 <script>
+import { removeVietnameseFromString } from "../helper";
+import { mapState } from "vuex";
 export default {
-    name: "app-navigation"
+    name: "app-navigation",
+    computed: {
+        ...mapState({
+            categories: state => state.post.categories
+        })
+    },
+    methods: {
+        getLinkCategory(category) {
+            return {
+                name: "home-page",
+                query: {
+                    text: removeVietnameseFromString(category.text),
+                    tagIndex: category.id
+                }
+            };
+        }
+    }
 };
 </script>
 
-<style>
+<style scoped>
+.ass1-header__nav > .container ul {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.ass1-header__nav > .container ul li {
+    width: 25%;
+}
+
+.ass1-header__nav > .container ul li:first-child {
+    margin-top: 8px;
+}
 </style>

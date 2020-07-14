@@ -9,18 +9,22 @@
             </div>
         </main>
         <app-footer v-if="isRenderFooter" />
+        <loading :class="{ show: isLoading }" />
     </div>
 </template>
 
 <script>
 import AppHeader from "./components/AppHeader";
 import AppFooter from "./components/AppFooter";
+import Loading from "./components/Loading";
+import { mapState } from "vuex";
 export default {
     name: "app",
     data() {
         return {};
     },
     computed: {
+        ...mapState(["isLoading"]),
         isRenderHeader() {
             var arrRouter = ["login", "register"];
             var routerName = this.$route.name;
@@ -36,7 +40,11 @@ export default {
     },
     components: {
         AppHeader,
-        AppFooter
+        AppFooter,
+        Loading
+    },
+    created() {
+        this.$store.dispatch("getListPostByPaging", {});
     }
 };
 </script>
@@ -51,3 +59,5 @@ export default {
     opacity: 0;
 }
 </style>
+
+
