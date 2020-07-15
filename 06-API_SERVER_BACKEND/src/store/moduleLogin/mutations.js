@@ -1,3 +1,5 @@
+
+
 export default {
   // nếu currentPage = 1 => thay thế array root
   SET_LIST_POST(state, data) {

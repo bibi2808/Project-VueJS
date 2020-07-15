@@ -74,15 +74,6 @@ export default {
                     tagIndex: category.tag_index
                 }
             };
-        },
-        login() {
-            const { username, password } = this;
-            this.$store
-                .dispatch(AUTH_REQUEST, { username, password })
-                .then(res => {
-                    console.log(res);
-                    this.$router.push("/");
-                });
         }
     },
     components: {

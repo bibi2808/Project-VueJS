@@ -16,7 +16,7 @@ export default {
       };
       if (tagIndex) {
         var url = "/post/getListByCategory.php";
-        	config.params.tagIndex = tagIndex;
+        config.params.tagIndex = tagIndex;
         var result = await axiosInstance.get(url, config);
       } else {
         var url = "/post/getListPagination.php";
@@ -41,11 +41,14 @@ export default {
     try {
       var url = "/post/post.php?postid=" + postId;
       var result = await axiosInstance.get(url);
-      
+
       if (result.data.status === 200) {
         // gọi tiếp sang API user
-		var resultUser = await dispatch("getUserById",result.data.data.post.USERID);
-		commit("SET_LOADING", false);
+        var resultUser = await dispatch(
+          "getUserById",
+          result.data.data.post.USERID
+        );
+        commit("SET_LOADING", false);
         commit("SET_POST_DETAIL", result.data.data);
         return {
           ok: true,
