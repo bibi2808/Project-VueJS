@@ -21,6 +21,5 @@ const removeVietnameseFromString = str => {
     .replace(/-$/, "");
   return str;
 };
-// console.log(removeVietnameseFromString("trương gia bình"));
 
 export { removeVietnameseFromString };

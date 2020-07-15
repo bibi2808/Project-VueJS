@@ -19,19 +19,19 @@ export default {
         PostList,
         SideBar
     },
+    // load khi change route
+    // lan dau tien thi not run
     watch: {
         $route(to, from) {
             var tagIndex = to.query.tagIndex;
-            if (tagIndex) {
-                // dispatch action by category
-                this.getListPostByPaging({ tagIndex });
-                console.log("run");
-            } else {
-                // dispatch action by paging
-                this.getListPostByPaging({});
-            }
-            console.log(to);
+            this.getListPostByPaging({ tagIndex });
+            // nếu nhả qua homepage => tagIndex  = undified
+            // nếu nhảy qua homepage có thêm query => tagIndex có value
         }
+    },
+    created() {
+        var tagIndex = this.$route.query.tagIndex;
+        this.getListPostByPaging({ tagIndex });
     },
     methods: {
         ...mapActions(["getListPostByPaging"])

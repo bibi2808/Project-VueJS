@@ -42,10 +42,10 @@ export default {
         AppHeader,
         AppFooter,
         Loading
-    },
-    created() {
-        this.$store.dispatch("getListPostByPaging", {});
     }
+    // created() {
+    //     this.$store.dispatch("getListPostByPaging", {});
+    // }
 };
 </script>
 
