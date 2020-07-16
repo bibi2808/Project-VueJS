@@ -3,7 +3,7 @@ export default {
     return state.listPost;
   },
   getDataPostDetail(state, getters, rootState) {
-    if (state.postDetail.post) {
+    if (state.postDetail) {
       var USERID = state.postDetail.post.USERID;
       var user = rootState.user.users[USERID];
       var data = {
@@ -14,7 +14,6 @@ export default {
         },
         categories: state.postDetail.categories
       };
-      console.log(data);
       return data;
     }
   }

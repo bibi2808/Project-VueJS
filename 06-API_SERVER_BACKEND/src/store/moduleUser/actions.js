@@ -20,5 +20,32 @@ export default {
         error: error.message
       };
     }
+  },
+  async login({ commit }, { email = "", password = "" }) {
+    try {
+      let data = {
+        email: email,
+        password: password
+      };
+
+      var result = await axiosInstance.post("/member/login.php", data);
+      if (result.data.status === 200) {
+        return {
+          ok: true,
+          error: null,
+          data: result.data
+        };
+      } else {
+        return {
+          ok: false,
+          error: result.data.error
+        };
+      }
+    } catch (error) {
+      return {
+        ok: false,
+        error: result.data.error
+      };
+    }
   }
 };

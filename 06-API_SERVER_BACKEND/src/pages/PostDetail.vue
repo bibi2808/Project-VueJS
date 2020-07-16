@@ -7,7 +7,7 @@
                         <div class="ass1-section">
                             <post-item v-bind:post="postDetail.post" />
 
-                            <!-- <post-feeling /> -->
+                            <post-feeling />
                             <ul>
                                 <li v-for="item in postDetail.categories" :key="item.TAG_ID">
                                     <router-link :to="getLinkCategory(item)">{{ item.tag_value }}</router-link>
