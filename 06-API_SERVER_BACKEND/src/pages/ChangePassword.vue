@@ -1,32 +1,32 @@
 <template>
     <div class="ass1-login">
         <div class="ass1-login__content">
-            <p>Đổi mật khẩu</p>
+            <p>Change Password</p>
             <div class="ass1-login__form">
                 <form action="#" @submit.prevent="handleChangePassword">
                     <input
                         v-model="oldPassword"
                         type="password"
                         class="form-control"
-                        placeholder="Mật khẩu cũ"
+                        placeholder="Old Password"
                         required
                     />
                     <input
                         v-model="newPassword"
                         type="password"
                         class="form-control"
-                        placeholder="Mật khẩu mới"
+                        placeholder="New Password"
                         required
                     />
                     <input
                         v-model="reNewPassword"
                         type="password"
                         class="form-control"
-                        placeholder="Xác nhận mật khẩu mới"
+                        placeholder="Confirm New Password"
                         required
                     />
                     <div class="ass1-login__send justify-content-center">
-                        <button type="submit" class="ass1-btn">Gửi</button>
+                        <button type="submit" class="ass1-btn">Send</button>
                     </div>
                 </form>
             </div>

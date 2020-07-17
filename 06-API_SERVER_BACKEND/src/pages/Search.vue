@@ -2,10 +2,10 @@
     <div class="search-page">
         <div class="search-info">
             <h3>
-                Từ khóa tìm kiểm:
+                Search by keyword:
                 <strong>{{ query }}</strong>
             </h3>
-            <p>Tìm kiếm được ({{ this.listPostSearch.length }}) kết quả</p>
+            <p>Found ({{ this.listPostSearch.length }}) Result</p>
             <!-- <p>Nội dung b<mark>ài</mark>  viết nè</p> -->
         </div>
         <div

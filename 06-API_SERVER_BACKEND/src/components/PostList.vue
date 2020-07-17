@@ -7,9 +7,9 @@
             v-if="getListPost && getListPost.length"
             class="load-more ass1-btn"
         >
-            <span>Xem thêm</span>
+            <span>See more</span>
         </button>
-        <h3 v-else>Danh sách rỗng</h3>
+        <h3 v-else>List empty</h3>
     </div>
 </template>
 

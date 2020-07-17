@@ -1,10 +1,10 @@
 <template>
     <aside class="ass1-aside">
         <div class="ass1-content-head__t">
-            <div>Bài viết gần đây của bạn.</div>
+            <div>Last posts.</div>
         </div>
         <div v-if="!isLogin">
-            Vui lòng đăng nhập để xem nội dung này
+            Please login to see this post
             <router-link to="/login">Đăng nhập</router-link>
         </div>
         <div v-else-if="isLogin && getListPostOfCurrentUser && getListPostOfCurrentUser.length">

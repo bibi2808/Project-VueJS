@@ -11,7 +11,7 @@
                     <!-- <post-feeling /> -->
                     <div class="list-categories">
                         <h5>
-                            <strong>Danh mục:</strong>
+                            <strong>Categories:</strong>
                         </h5>
                         <ul>
                             <li v-for="item in getDataPostDetail.categories" :key="item.TAG_ID">

@@ -1,17 +1,17 @@
 <template>
     <div class="ass1-login">
         <div class="ass1-login__logo">
-            <router-link to="/" class="ass1-logo">ZendVn Meme</router-link>
+            <router-link to="/" class="ass1-logo">Troll Me</router-link>
         </div>
         <div class="ass1-login__content">
-            <p>Đăng ký một tài khoản</p>
+            <p>Register an account</p>
             <div class="ass1-login__form">
                 <form action="#" @submit.prevent="handleSubmitRegister">
                     <input
                         v-model="fullname"
                         type="text"
                         class="form-control"
-                        placeholder="Tên hiển thị"
+                        placeholder="Your name"
                         required
                     />
                     <input
@@ -25,19 +25,19 @@
                         v-model="password"
                         type="password"
                         class="form-control"
-                        placeholder="Mật khẩu"
+                        placeholder="Password"
                         required
                     />
                     <input
                         v-model="repassword"
                         type="password"
                         class="form-control"
-                        placeholder="Nhập lại mật khẩu"
+                        placeholder="Confirm password"
                         required
                     />
                     <div class="ass1-login__send">
-                        <router-link to="/login">Đăng nhập</router-link>
-                        <button type="submit" class="ass1-btn">Đăng ký</button>
+                        <router-link to="/login">Login</router-link>
+                        <button type="submit" class="ass1-btn">Register</button>
                     </div>
                 </form>
             </div>

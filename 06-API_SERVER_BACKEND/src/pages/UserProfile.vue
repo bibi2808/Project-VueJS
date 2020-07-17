@@ -13,7 +13,7 @@
                         @input="fullname = $event.target.value"
                         type="text"
                         class="form-control"
-                        placeholder="Tên ..."
+                        placeholder="Your name ..."
                         required
                     />
 
@@ -22,16 +22,16 @@
                         @change="gender = $event.target.value"
                         class="form-control"
                     >
-                        <option value disabled>Giới tính</option>
-                        <option value="nam">Nam</option>
-                        <option value="nu">Nữ</option>
+                        <option value disabled>Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
                     </select>
 
                     <input
                         @change="uploadAvatar"
                         type="file"
                         name="avatar"
-                        placeholder="Ảnh đại diện"
+                        placeholder="Avatar profile"
                         class="form-control"
                     />
 
@@ -41,11 +41,11 @@
                         class="form-control"
                         cols="30"
                         rows="5"
-                        placeholder="Mô tả ngắn ..."
+                        placeholder="Describle ..."
                     ></textarea>
 
                     <div class="ass1-login__send justify-content-center">
-                        <button type="submit" class="ass1-btn">Cập nhật</button>
+                        <button type="submit" class="ass1-btn">Update</button>
                     </div>
                 </form>
             </div>

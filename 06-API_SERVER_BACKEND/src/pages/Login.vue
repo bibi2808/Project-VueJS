@@ -1,10 +1,10 @@
 <template>
     <div class="ass1-login">
         <div class="ass1-login__logo">
-            <router-link to="/" class="ass1-logo">ZendVn Meme</router-link>
+            <router-link to="/" class="ass1-logo">Troll Me</router-link>
         </div>
         <div class="ass1-login__content">
-            <p>Đăng nhập</p>
+            <p>Login Page</p>
             <div class="ass1-login__form">
                 <form action="#" @submit.prevent="handleSubmitLogin">
                     <input
@@ -19,14 +19,13 @@
                             v-model="password"
                             type="password"
                             class="form-control"
-                            placeholder="Mật khẩu"
+                            placeholder="Password"
                             required
                         />
-                        <!-- <a href="#">Copy</a> -->
                     </div>
                     <div class="ass1-login__send">
-                        <router-link to="/register">Đăng ký một tài khoản</router-link>
-                        <button type="submit" class="ass1-btn">Đăng nhập</button>
+                        <router-link to="/register">Register</router-link>
+                        <button type="submit" class="ass1-btn">Login</button>
                     </div>
                 </form>
             </div>

@@ -19,13 +19,13 @@
                         v-if="!isCurrentUser"
                         href="#"
                         class="ass1-head-user__btn-follow ass1-btn"
-                    >Theo dõi</a>
+                    >Follow</a>
 
                     <template v-else>
                         <router-link
                             :to="{ name: 'change-password', params: { id: userInfor.USERID } }"
                             class="ass1-head-user__btn-follow ass1-btn"
-                        >Đổi mật khẩu</router-link>
+                        >Change Password</router-link>
                         <router-link
                             :to="{ name: 'user-profile', params: { id: userInfor.USERID } }"
                             class="ass1-head-user__btn-follow ass1-btn"
@@ -35,15 +35,15 @@
                 <div class="ass1-head-user__info-statistic">
                     <div class="ass1-btn-icon">
                         <i class="icon-Post"></i>
-                        <span>Bài viết: {{ countPost }}</span>
+                        <span>Posts: {{ countPost }}</span>
                     </div>
                     <div class="ass1-btn-icon">
                         <i class="icon-Followers"></i>
-                        <span>Theo dõi: 0</span>
+                        <span>Followers: 0</span>
                     </div>
                     <div class="ass1-btn-icon">
                         <i class="icon-Following"></i>
-                        <span>Đang theo dõi: 0</span>
+                        <span>Following: 0</span>
                     </div>
                 </div>
                 <p>{{ userInfor.description }}</p>

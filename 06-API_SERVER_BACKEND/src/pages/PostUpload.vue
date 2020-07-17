@@ -18,7 +18,7 @@
                                 v-model="post_content"
                                 type="text"
                                 class="form-control ttg-border-none"
-                                placeholder="Mô tả ..."
+                                placeholder="Describle ..."
                             ></textarea>
                         </div>
                     </form>
@@ -30,10 +30,10 @@
                         target="_blank"
                         class="ass1-btn ass1-btn-meme"
                     >
-                        Chế ảnh từ
+                        Create image from
                         meme
                     </a>
-                    <button @click="uploadImage" class="ass1-btn ass1-btn-meme">Đăng ảnh từ máy tính</button>
+                    <button @click="uploadImage" class="ass1-btn ass1-btn-meme">From computer</button>
                     <!-- ref -->
                     <input
                         @change="handleUploadImage"
@@ -49,10 +49,10 @@
         <div class="col-lg-4">
             <aside class="ass1-aside ass1-aside__edit-post">
                 <div>
-                    <button @click="handleUploadPost" class="ass1-btn">Đăng bài</button>
+                    <button @click="handleUploadPost" class="ass1-btn">Post</button>
                 </div>
                 <div class="ass1-aside__edit-post-head">
-                    <span style="display: block; width: 100%; margin-bottom: 10px;">Chọn danh mục</span>
+                    <span style="display: block; width: 100%; margin-bottom: 10px;">Choose item</span>
 
                     <label class="ass1-checkbox" v-for="item in allCategories" :key="item.id">
                         <input

@@ -1,13 +1,10 @@
 <template>
     <div class="ass1-add-comment">
         <form action="#" @submit.prevent="handleAddComment">
-            <!-- <input 
-                v-model="comment"
-            type="text"  placeholder="Thêm một bình luận">-->
             <textarea
                 v-model="comment"
                 class="form-control ttg-border-none"
-                placeholder="Thêm một bình luận"
+                placeholder="Add a comment ......"
             ></textarea>
         </form>
         <div class="ass1-add-comment__content">
