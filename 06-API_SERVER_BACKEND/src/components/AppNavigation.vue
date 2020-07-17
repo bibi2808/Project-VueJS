@@ -2,7 +2,7 @@
     <nav>
         <ul class="ass1-header__menu">
             <li>
-                <a href="javascript:void(0)">Danh mục</a>
+                <a href="javascript:void(0)">Categories</a>
                 <div class="ass1-header__nav" style="display: none;">
                     <div class="container">
                         <ul>

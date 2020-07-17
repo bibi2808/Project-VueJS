@@ -48,7 +48,7 @@ export default {
             return { name: "user-page", params: { id: userid } };
         },
         formatTimeAdded() {
-            moment.locale("vi");
+            // moment.locale("vi");
             return moment(this.post.time_added).fromNow();
         },
         formatFullname() {

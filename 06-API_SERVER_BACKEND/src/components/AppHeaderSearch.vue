@@ -7,7 +7,7 @@
                     type="search"
                     name="search-text"
                     class="form-control"
-                    placeholder="Nhập từ khóa ..."
+                    placeholder="Search ..."
                 />
                 <i class="icon-Search"></i>
             </label>
