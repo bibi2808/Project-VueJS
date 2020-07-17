@@ -9,7 +9,9 @@ import PostDetail from "./pages/PostDetail";
 import PostUpload from "./pages/PostUpload";
 import UserPage from "./pages/UserPage";
 import UserProfile from "./pages/UserProfile";
-import NotFoundPage from "./pages/NotFoundPage";
+import Search from "./pages/Search";
+
+import { ifNotAuthenticated, ifAuthenticated } from "./plugins/authenticate";
 
 Vue.use(VueRouter);
 
@@ -22,26 +24,26 @@ const routes = [
   {
     path: "/login",
     name: "login",
-    component: Login
-    // beforeEnter: ifNotAuthenticated
+    component: Login,
+    beforeEnter: ifNotAuthenticated
   },
   {
     path: "/register",
     name: "register",
-    component: Register
-    // beforeEnter: ifNotAuthenticated
+    component: Register,
+    beforeEnter: ifNotAuthenticated
   },
   {
     path: "/user/:id",
     name: "user-page",
-    component: UserPage
-    // beforeEnter: ifAuthenticated
+    component: UserPage,
+    beforeEnter: ifAuthenticated
   },
   {
     path: "/user/:id/profile",
     name: "user-profile",
-    component: UserProfile
-    // beforeEnter: ifAuthenticated
+    component: UserProfile,
+    beforeEnter: ifAuthenticated
   },
   {
     path: "/user/:id/password",
@@ -56,18 +58,13 @@ const routes = [
   {
     path: "/upload",
     name: "upload",
-    component: PostUpload
-    // beforeEnter: ifAuthenticated
+    component: PostUpload,
+    beforeEnter: ifAuthenticated
   },
-  // {
-  //   path: "/search",
-  //   name: "search",
-  //   component: Search
-  // },
   {
-    path: "*",
-    name: "not-found-page",
-    component: NotFoundPage
+    path: "/search",
+    name: "search",
+    component: Search
   }
 ];
 
@@ -77,3 +74,7 @@ const router = new VueRouter({
 });
 
 export default router;
+
+// 1. Router chỉ cho phép vào khi chưa đăng nhập (Login, Register)
+// 2. Router chỉ chó phép vào khi đã đăng nhập
+// 3. Router cho phép vào thoải mái

@@ -2,12 +2,12 @@
     <nav>
         <ul class="ass1-header__menu">
             <li>
-                <a href="#">Danh mục</a>
+                <a href="javascript:void(0)">Danh mục</a>
                 <div class="ass1-header__nav" style="display: none;">
                     <div class="container">
                         <ul>
                             <li v-for="item in categories" :key="item.id">
-                                <router-link :to="getLinkCategory(item)">{{ item.text}}</router-link>
+                                <router-link :to="getLinkCategory(item)">{{ item.text }}</router-link>
                             </li>
                         </ul>
                     </div>
@@ -17,18 +17,12 @@
         </ul>
     </nav>
 </template>
-// ????????????????
 
 <script>
-import { removeVietnameseFromString } from "../helper";
-import { mapState } from "vuex";
+import { removeVietnameseFromString } from "../helpers";
+
 export default {
     name: "app-navigation",
-    computed: {
-        ...mapState({
-            categories: state => state.post.categories
-        })
-    },
     methods: {
         getLinkCategory(category) {
             return {
@@ -39,6 +33,11 @@ export default {
                 }
             };
         }
+    },
+    computed: {
+        categories() {
+            return this.$store.state.post.categories;
+        }
     }
 };
 </script>
@@ -46,14 +45,12 @@ export default {
 <style scoped>
 .ass1-header__nav > .container ul {
     width: 100%;
-    flex-direction: row;
     flex-wrap: wrap;
+    flex-direction: row;
 }
-
 .ass1-header__nav > .container ul li {
     width: 25%;
 }
-
 .ass1-header__nav > .container ul li:first-child {
     margin-top: 8px;
 }

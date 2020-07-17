@@ -3,23 +3,27 @@
         <app-header v-if="isRenderHeader" />
         <main>
             <div class="container">
-                <transition name="fade" mode="out-in">
-                    <router-view></router-view>
-                </transition>
+                <router-view></router-view>
             </div>
         </main>
         <app-footer v-if="isRenderFooter" />
         <loading :class="{ show: isLoading }" />
+        <notifications group="error" position="top right" />
     </div>
 </template>
 
 <script>
+import { mapState, mapActions } from "vuex";
 import AppHeader from "./components/AppHeader";
 import AppFooter from "./components/AppFooter";
 import Loading from "./components/Loading";
-import { mapState } from "vuex";
 export default {
     name: "app",
+    components: {
+        AppHeader,
+        AppFooter,
+        Loading
+    },
     data() {
         return {};
     },
@@ -38,26 +42,14 @@ export default {
             return true;
         }
     },
-    components: {
-        AppHeader,
-        AppFooter,
-        Loading
+    created() {
+        this.checkLogin();
+    },
+    methods: {
+        ...mapActions(["checkLogin"])
     }
-    // created() {
-    //     this.$store.dispatch("getListPostByPaging", {});
-    // }
 };
 </script>
 
 <style>
-.fade-enter-active,
-.fade-leave-active {
-    transition: opacity 0.3s ease;
-}
-.fade-enter,
-.fade-leave-to {
-    opacity: 0;
-}
 </style>
-
-

@@ -1,43 +1,42 @@
 <template>
-    <main>
-        <div class="ass1-login">
-            <div class="ass1-login__logo">
-                <router-link to="/" class="ass1-logo">Troll ME</router-link>
-            </div>
-            <div class="ass1-login__content">
-                <p>Đăng nhập</p>
-                <div class="ass1-login__form">
-                    <form action="#" v-on:submit.prevent="handleSubmitLogin">
+    <div class="ass1-login">
+        <div class="ass1-login__logo">
+            <router-link to="/" class="ass1-logo">ZendVn Meme</router-link>
+        </div>
+        <div class="ass1-login__content">
+            <p>Đăng nhập</p>
+            <div class="ass1-login__form">
+                <form action="#" @submit.prevent="handleSubmitLogin">
+                    <input
+                        v-model="email"
+                        type="text"
+                        class="form-control"
+                        placeholder="Email"
+                        required
+                    />
+                    <div class="ass1-input-copy">
                         <input
-                            v-model="email"
-                            type="text"
+                            v-model="password"
+                            type="password"
                             class="form-control"
-                            placeholder="Email"
+                            placeholder="Mật khẩu"
                             required
                         />
-                        <div class="ass1-input-copy">
-                            <input
-                                v-model="password"
-                                type="password"
-                                class="form-control"
-                                placeholder="Mật khẩu"
-                                required
-                            />
-                            <!-- <a href="#">Copy</a> -->
-                        </div>
-                        <div class="ass1-login__send">
-                            <a href="dang-ky.html">Đăng ký một tài khoản</a>
-                            <button type="submit" class="ass1-btn">Đăng nhập</button>
-                        </div>
-                    </form>
-                </div>
+                        <!-- <a href="#">Copy</a> -->
+                    </div>
+                    <div class="ass1-login__send">
+                        <router-link to="/register">Đăng ký một tài khoản</router-link>
+                        <button type="submit" class="ass1-btn">Đăng nhập</button>
+                    </div>
+                </form>
             </div>
         </div>
-    </main>
+    </div>
 </template>
 
 <script>
 import { mapActions } from "vuex";
+import { EMAIL_OR_PASSWORD_IS_WRONG, PASSWORD_IS_SHORT } from "../constants";
 export default {
     name: "login",
     data() {
@@ -48,13 +47,21 @@ export default {
     },
     methods: {
         ...mapActions(["login"]),
-        handleSubmitLogin() {
+        handleSubmitLogin(e) {
             let data = {
                 email: this.email,
                 password: this.password
             };
             this.login(data).then(res => {
-                console.log(res);
+                if (res.ok) {
+                    this.$router.push("/");
+                } else {
+                    if (typeof res.error === "string") {
+                        this.$notify(EMAIL_OR_PASSWORD_IS_WRONG);
+                    } else {
+                        this.$notify(PASSWORD_IS_SHORT);
+                    }
+                }
             });
         }
     }

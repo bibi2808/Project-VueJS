@@ -1,8 +1,9 @@
 <template>
     <div class="ass1-header__search">
-        <form action="#">
+        <form action="#" @submit.prevent="handleSearch">
             <label>
                 <input
+                    v-model="querySearch"
                     type="search"
                     name="search-text"
                     class="form-control"
@@ -16,7 +17,27 @@
 
 <script>
 export default {
-    name: "app-header-search"
+    name: "app-header-search",
+    data() {
+        return {
+            querySearch: ""
+        };
+    },
+    methods: {
+        handleSearch() {
+            if (this.querySearch) {
+                this.$router.push({
+                    name: "search",
+                    query: {
+                        query: this.querySearch
+                    }
+                });
+                this.querySearch = "";
+            } else {
+                alert("Vui lòng nhập nội dung search");
+            }
+        }
+    }
 };
 </script>
 

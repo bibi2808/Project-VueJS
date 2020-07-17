@@ -1,39 +1,47 @@
 <template>
-    <main>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="ass1-section__list" v-if="postDetail && postDetail.post">
-                        <div class="ass1-section">
-                            <post-item v-bind:post="postDetail.post" />
+    <div class="row">
+        <div class="col-lg-8">
+            <div
+                class="ass1-section__post-detail"
+                v-if="getDataPostDetail && getDataPostDetail.post"
+            >
+                <div class="ass1-section">
+                    <post-item :post="getDataPostDetail.post" />
 
-                            <post-feeling />
-                            <ul>
-                                <li v-for="item in postDetail.categories" :key="item.TAG_ID">
-                                    <router-link :to="getLinkCategory(item)">{{ item.tag_value }}</router-link>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <post-add-comment />
-
-                        <post-comment />
+                    <!-- <post-feeling /> -->
+                    <div class="list-categories">
+                        <h5>
+                            <strong>Danh mục:</strong>
+                        </h5>
+                        <ul>
+                            <li v-for="item in getDataPostDetail.categories" :key="item.TAG_ID">
+                                <router-link :to="getLinkCategory(item)">{{ item.tag_value }}</router-link>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <side-bar />
+
+                <post-comment-add />
+
+                <post-comments :comments="getDataPostDetail.comments" />
             </div>
         </div>
-    </main>
+        <div class="col-lg-4">
+            <sidebar />
+        </div>
+    </div>
 </template>
 
 <script>
-import SideBar from "../components/SideBar";
+import Sidebar from "../components/Sidebar";
 import PostItem from "../components/PostItem";
 import PostFeeling from "../components/PostFeeling";
-import PostAddComment from "../components/PostAddComment";
-import PostComment from "../components/PostComment";
-import { mapGetters, mapActions } from "vuex";
-import { removeVietnameseFromString } from "../helper";
+import PostComments from "../components/PostComments";
+import PostCommentAdd from "../components/PostCommentAdd";
+
+import { mapActions, mapGetters } from "vuex";
+import { removeVietnameseFromString } from "../helpers";
+
 export default {
     name: "post-detail",
     data() {
@@ -41,27 +49,31 @@ export default {
             postId: this.$route.params.id
         };
     },
+    components: {
+        Sidebar,
+        PostItem,
+        PostFeeling,
+        PostComments,
+        PostCommentAdd
+    },
     watch: {
         $route(to, from) {
             this.postId = to.params.id;
             this.fetchDataPostDetail();
         }
     },
-    created() {
-        //load lai page at first time
-        this.fetchDataPostDetail();
-    },
     computed: {
-        ...mapGetters({
-            postDetail: "getDataPostDetail"
-        })
+        ...mapGetters(["getDataPostDetail"])
+    },
+    created() {
+        // Load lại trang lần đầu tiên
+        this.fetchDataPostDetail();
     },
     methods: {
         ...mapActions(["getPostDetailById"]),
         fetchDataPostDetail() {
             this.getPostDetailById(this.postId).then(res => {
                 if (!res.ok) {
-                    // khi mà user nhập sai địa chỉ thì chuyển về trang chủ => push home-page
                     this.$router.push("/");
                 }
             });
@@ -75,16 +87,46 @@ export default {
                 }
             };
         }
-    },
-    components: {
-        SideBar,
-        PostItem,
-        PostFeeling,
-        PostAddComment,
-        PostComment
     }
 };
 </script>
 
 <style>
+.ass1-section__post-detail {
+    margin-top: 44px;
+}
+.ass1-section__post-detail .ass1-section .ass1-section {
+    box-shadow: none;
+    padding: 0;
+    border-bottom: solid 1px #f3f3f3;
+}
+.list-categories {
+    padding-bottom: 20px;
+}
+.list-categories ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -5px;
+}
+.list-categories ul li {
+    margin: 5px;
+}
+.list-categories ul li a {
+    color: #333;
+    font-size: 14px;
+    display: block;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 3px 10px;
+    transition: all 0.3s ease;
+}
+.list-categories ul li a:hover {
+    background-color: #333;
+    border-color: #333;
+    color: #fff;
+}
+/* .ass1-section__post-detail > .ass1-section {
+        padding: 0;
+    } */
 </style>

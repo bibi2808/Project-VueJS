@@ -1,16 +1,15 @@
 <template>
     <div class="ass1-section__list">
-        <post-item v-for="post  in getListPost" :key="post.PID" :post="post" />
+        <post-item v-for="item in getListPost" :key="item.PID" :post="item" />
+
         <button
-            @click="handleSeeMore()"
+            @click="handleLoadMore"
             v-if="getListPost && getListPost.length"
             class="load-more ass1-btn"
         >
-            <span>SEE MORE</span>
+            <span>Xem thêm</span>
         </button>
-        <div class="ass1-section__list" v-else>
-            <h3>Empty</h3>
-        </div>
+        <h3 v-else>Danh sách rỗng</h3>
     </div>
 </template>
 
@@ -27,29 +26,29 @@ export default {
             tagIndex: parseInt(this.$route.query.tagIndex)
         };
     },
+    components: {
+        PostItem
+    },
+    computed: {
+        ...mapGetters(["getListPost"])
+    },
     watch: {
         $route(to, from) {
             this.tagIndex = to.query.tagIndex;
             this.currPage = 1;
         }
     },
-    computed: {
-        ...mapGetters(["getListPost"])
-    },
     methods: {
-        ...mapActions(["getListPostByPaging"]),
-        handleSeeMore() {
-            this.currPage += 1;
-            let data = {
+        ...mapActions(["getListPostHasPaging"]),
+        handleLoadMore() {
+            this.currPage = this.currPage + 1;
+            let obj = {
                 pagesize: this.pagesize,
                 currPage: this.currPage,
                 tagIndex: this.tagIndex
             };
-            this.getListPostByPaging(data);
+            this.getListPostHasPaging(obj);
         }
-    },
-    components: {
-        PostItem
     }
 };
 </script>

@@ -4,16 +4,16 @@
 
 
 Có header
-    Home
+    Trang Chủ
     Profile
-    change password
+    Thay đổi pass
     User
-    Upload Image
-    post detail
+    Dang Anh
+    Bai Viet Chi Tiet
 
 Không có header 
-    Login
-    Logout
+    Đăng nhập
+    Đăng ký
 
 
 =========================================

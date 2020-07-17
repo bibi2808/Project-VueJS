@@ -2,27 +2,35 @@
     <header>
         <div class="ass1-header">
             <div class="container">
-                <router-link to="/" class="ass1-logo">BIBI ZINGME</router-link>
+                <router-link to="/" class="ass1-logo">Meme ZendVn</router-link>
 
                 <app-navigation />
 
                 <app-header-search />
 
-                <a href="#" class="ass1-header__btn-upload ass1-btn">
+                <router-link to="/upload" class="ass1-header__btn-upload ass1-btn">
                     <i class="icon-Upvote"></i> Upload
-                </a>
-                <!-- Ì haven't not yet login -->
-                <router-link to="/login" class="ass1-header__btn-upload ass1-btn">Login</router-link>
+                </router-link>
+
+                <!-- If Not Login -->
+                <router-link
+                    v-if="!isLogin"
+                    to="/login"
+                    class="ass1-header__btn-upload ass1-btn"
+                >Login</router-link>
 
                 <!-- If Already Login -->
-                <div class="wrapper-user">
-                    <a href="#" class="user-header">
+                <div v-else-if="currentUser" class="wrapper-user">
+                    <router-link
+                        :to="{ name: 'user-page', params: { id: currentUser.USERID } }"
+                        class="user-header"
+                    >
                         <span class="avatar">
-                            <img src="../../dist/images/avatar-01.png" alt="avatar" />
+                            <img :src="getAvatar" alt="avatar" />
                         </span>
-                        <span class="email">email</span>
-                    </a>
-                    <div v-on:click="handleLogout" class="logout">Logout</div>
+                        <span class="email">{{ currentUser.email }}</span>
+                    </router-link>
+                    <div @click="handleLogout" class="logout">Logout</div>
                 </div>
             </div>
         </div>
@@ -31,34 +39,54 @@
 
 <script>
 import $ from "jquery";
-import AppNavigation from "./AppNavigation";
 import AppHeaderSearch from "./AppHeaderSearch";
+import AppNavigation from "./AppNavigation";
+
+import { mapGetters, mapActions } from "vuex";
+
 export default {
     name: "app-header",
+    components: {
+        AppNavigation,
+        AppHeaderSearch
+    },
     mounted() {
         $(".ass1-header__menu li > a").click(function(e) {
+            // $(".ass1-header__nav").hide();
             $(this)
                 .parent()
                 .find(".ass1-header__nav")
                 .slideToggle(300, "swing");
         });
+
         $(".ass1-header__nav ul li > a").click(function(e) {
             $(this)
                 .parents(".ass1-header__nav")
                 .slideUp(300, "swing");
         });
     },
-    components: {
-        AppNavigation,
-        AppHeaderSearch
+    computed: {
+        ...mapGetters(["isLogin", "currentUser"]),
+        getAvatar() {
+            if (this.currentUser.profilepicture)
+                return this.currentUser.profilepicture;
+            return "/dist/images/default-avatar.png";
+        }
     },
     methods: {
+        ...mapActions(["logout"]),
         handleLogout() {
-            console.log("logout");
+            var check = confirm("Bạn có thực sự muốn đăng xuất?");
+            if (check) {
+                this.logout().then(res => {
+                    this.$router.push("/login");
+                });
+            }
         }
     }
 };
 </script>
+
 
 <style scoped>
 .user-header {

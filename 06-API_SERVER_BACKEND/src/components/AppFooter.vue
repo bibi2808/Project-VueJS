@@ -2,7 +2,7 @@
     <footer>
         <div class="ass1-footer">
             <div class="container">
-                <p class="text-center">Let Me Love You</p>
+                <p class="text-center">Cộng đồng chế ảnh ZendVN</p>
             </div>
         </div>
     </footer>
@@ -10,9 +10,10 @@
 
 <script>
 export default {
-    name: "app-footer"
-};
+    name: 'app-footer'
+}
 </script>
 
 <style>
+
 </style>

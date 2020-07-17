@@ -1,8 +1,8 @@
 {
-  "name": "api_server_backend",
+  "name": "meme-zendvn",
   "description": "A Vue.js project",
   "version": "1.0.0",
-  "author": "bibi2808 <tuanda28081995@gmail.com>",
+  "author": "luctc <luctc.developer1902@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -11,14 +11,17 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
-    "axios": "^0.19.2",
+    "axios": "^0.19.0",
+    "babel-polyfill": "^6.26.0",
     "bootstrap": "4.0.0",
-    "bootstrap-vue": "^2.15.0",
-    "jquery": "^3.5.1",
-    "moment": "^2.27.0",
-    "vue": "^2.6.11",
-    "vue-router": "^3.3.4",
-    "vuex": "^3.5.1"
+    "bootstrap-vue": "^2.0.0-rc.28",
+    "jquery": "^3.4.1",
+    "moment": "^2.24.0",
+    "vue": "^2.6.10",
+    "vue-masonry": "^0.11.8",
+    "vue-notification": "^1.3.20",
+    "vue-router": "^3.1.3",
+    "vuex": "^3.1.1"
   },
   "browserslist": [
     "> 1%",

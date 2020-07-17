@@ -1,12 +1,11 @@
-import state from "./state";
-import getters from "./getters";
-import mutations from "./mutations";
-import actions from "./actions";
+import state from './state';
+import getters from './getters';
+import actions from './actions';
+import mutations from './mutations';
 
 export default {
-  // namescpaced: true,
-  state,
-  getters,
-  mutations,
-  actions
-};
+    state,
+    getters,
+    actions,
+    mutations,
+}
