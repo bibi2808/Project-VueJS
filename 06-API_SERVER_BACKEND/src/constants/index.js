@@ -74,6 +74,15 @@ const REGISTER_FAILED = {
   text: "Register has failed !"
 };
 
+const TYPE_OF_FILE_WRONG = {
+  group: "error",
+  type: "error",
+  duration: 3000,
+  speed: 1000,
+  title: "Important message",
+  text: "Type of file was wrong !"
+};
+
 const REGISTER_SUCCESS = {
   group: "error",
   type: "success",
@@ -83,7 +92,7 @@ const REGISTER_SUCCESS = {
   text: "Register has success !"
 };
 
-const COMMENTED_SUCCESS = {
+const COMMENT_SUCCESS = {
   group: "error",
   type: "success",
   duration: 3000,
@@ -101,6 +110,24 @@ const CHANG_PASSWORD_SUCCESS = {
   text: "changed password success !"
 };
 
+const UPLOAD_SUCCESS = {
+  group: "error",
+  type: "success",
+  duration: 3000,
+  speed: 1000,
+  title: "Important message",
+  text: "Uploaded is successfully !"
+};
+
+const UPLOAD_FAILED = {
+  group: "error",
+  type: "success",
+  duration: 3000,
+  speed: 1000,
+  title: "Important message",
+  text: "Uploaded is successfully !"
+};
+
 export {
   PAGE_SIZE,
   CURRENT_PAGE,
@@ -113,7 +140,10 @@ export {
   SEARCH_INFORMATION,
   INFORMATION_IS_NOT_CORRECT,
   REGISTER_FAILED,
-  COMMENTED_SUCCESS,
+  TYPE_OF_FILE_WRONG,
+  COMMENT_SUCCESS,
   CHANG_PASSWORD_SUCCESS,
-  REGISTER_SUCCESS
+  REGISTER_SUCCESS,
+  UPLOAD_SUCCESS,
+  UPLOAD_FAILED
 };

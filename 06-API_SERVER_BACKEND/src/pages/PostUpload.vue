@@ -85,6 +85,11 @@
 </template>
 
 <script>
+import {
+    TYPE_OF_FILE_WRONG,
+    UPLOAD_SUCCESS,
+    UPLOAD_FAILED
+} from "../constants";
 import { checkImageURL, checkImageFile } from "../helpers";
 import { mapActions } from "vuex";
 
@@ -124,7 +129,7 @@ export default {
                 let check = checkImageFile(imageUpload);
 
                 if (!check) {
-                    alert("File tải lên không hợp lệ!");
+                    this.$notify(TYPE_OF_FILE_WRONG);
                     return;
                 }
 
@@ -171,16 +176,18 @@ export default {
                         if (res.ok) {
                             // Reset lại toàn bộ data cũ
                             this.resetData();
-                            alert("Đăng bài viết thành công!");
+                            this.$$notify(UPLOAD_SUCCESS);
                         } else {
-                            alert(res.error);
+                            this.$notify(UPLOAD_FAILED);
                         }
                     });
                 } else {
-                    alert("Vui lòng upload hình ảnh bài viết");
+                    // alert("Vui lòng upload hình ảnh bài viết");
+                    this.$notify(UPLOAD_FAILED);
                 }
             } else {
-                alert("Vui lòng nhập đầy đủ nội đụng");
+                this.$notify(UPLOAD_FAILED);
+                // alert("Vui lòng nhập đầy đủ nội đụng");
             }
         }
     }

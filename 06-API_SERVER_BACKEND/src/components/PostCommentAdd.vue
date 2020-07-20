@@ -22,7 +22,7 @@
 
 <script>
 import { mapActions } from "vuex";
-import { COMMENTED_SUCCESS, INFORMATION_IS_NOT_CORRECT } from "../constants";
+import { COMMENT_SUCCESS, INFORMATION_IS_NOT_CORRECT } from "../constants";
 export default {
     name: "post-comment-add",
     data() {
@@ -53,10 +53,10 @@ export default {
                 };
                 this.addNewComment(data).then(res => {
                     if (res.ok) {
-                        this, $notify(COMMENTED_SUCCESS);
+                        this, $notify(COMMENT_SUCCESS);
                         this.comment = "";
                     } else {
-                        alert(res.error);
+                        this.$notify(INFORMATION_IS_NOT_CORRECT);
                     }
                 });
             } else {

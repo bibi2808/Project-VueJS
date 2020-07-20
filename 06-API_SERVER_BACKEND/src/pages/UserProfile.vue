@@ -55,6 +55,7 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import { UPLOAD_SUCCESS, UPLOAD_FAILED } from "../constants";
 export default {
     name: "user-profile",
     data() {
@@ -117,9 +118,9 @@ export default {
 
                 this.updateProfile(data).then(res => {
                     if (res.ok) {
-                        alert("Updated successfull!");
+                        this.$notify(UPLOAD_SUCCESS);
                     } else {
-                        alert(res.error);
+                        this.$notify(UPLOAD_FAILED);
                     }
                 });
             }
