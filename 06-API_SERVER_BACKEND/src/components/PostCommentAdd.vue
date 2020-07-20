@@ -22,6 +22,7 @@
 
 <script>
 import { mapActions } from "vuex";
+import { COMMENTED_SUCCESS, INFORMATION_IS_NOT_CORRECT } from "../constants";
 export default {
     name: "post-comment-add",
     data() {
@@ -52,14 +53,14 @@ export default {
                 };
                 this.addNewComment(data).then(res => {
                     if (res.ok) {
-                        alert("Đăng bình luận thành công!");
+                        this, $notify(COMMENTED_SUCCESS);
                         this.comment = "";
                     } else {
                         alert(res.error);
                     }
                 });
             } else {
-                alert("Dữ liệu nhập vào không đúng quy tắc");
+                this.$notify(INFORMATION_IS_NOT_CORRECT);
             }
         }
     }

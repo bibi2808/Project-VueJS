@@ -6,7 +6,6 @@
                 <strong>{{ query }}</strong>
             </h3>
             <p>Found ({{ this.listPostSearch.length }}) Result</p>
-            <!-- <p>Nội dung b<mark>ài</mark>  viết nè</p> -->
         </div>
         <div
             v-if="listPostSearch && listPostSearch.length"
@@ -64,6 +63,7 @@ export default {
         fetchDataSearch() {
             if (this.query) {
                 this.getListPostSearch(this.query).then(res => {
+                    console.log("res", res);
                     if (res.ok) {
                         this.listPostSearch = res.posts;
 

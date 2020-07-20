@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import { SEARCH_INFORMATION } from "../constants";
 export default {
     name: "app-header-search",
     data() {
@@ -34,7 +35,7 @@ export default {
                 });
                 this.querySearch = "";
             } else {
-                alert("Vui lòng nhập nội dung search");
+                this.$notify(SEARCH_INFORMATION);
             }
         }
     }

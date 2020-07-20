@@ -117,7 +117,7 @@ export default {
 
                 this.updateProfile(data).then(res => {
                     if (res.ok) {
-                        alert("Update thông tin Profile thành công!");
+                        alert("Updated successfull!");
                     } else {
                         alert(res.error);
                     }
@@ -136,7 +136,7 @@ export default {
                     () => {
                         let previewSrc = reader.result;
                         this.avatar.base64URL = previewSrc;
-                        this.avatar.objFile = fileAvatar;
+                        this.avatar.objFile = fileAvatar; // send to server
                     },
                     false
                 );

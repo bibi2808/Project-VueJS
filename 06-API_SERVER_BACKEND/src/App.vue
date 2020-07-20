@@ -8,7 +8,7 @@
         </main>
         <app-footer v-if="isRenderFooter" />
         <loading :class="{ show: isLoading }" />
-        <notifications group="error" position="top right" />
+        <notifications group="error" position="bottom right" />
     </div>
 </template>
 

@@ -4,9 +4,6 @@ import { parseJwt } from "../../helpers";
 import { CONFIG_ACCESS_TOKEN } from "../../constants";
 
 export default {
-  // increment ({ commit }) {
-  //     commit('increment')
-  // }
   async getUserById({ commit }, userid) {
     try {
       var result = await axiosInstance.get(
@@ -211,12 +208,9 @@ export default {
           Authorization: "Bearer " + localStorage.getItem(CONFIG_ACCESS_TOKEN)
         }
       };
+      let url = "/member/update.php";
 
-      let result = await axiosInstance.post(
-        "/member/update.php",
-        bodyFormData,
-        config
-      );
+      let result = await axiosInstance.post(url, bodyFormData, config);
       commit("SET_LOADING", false);
       if (result.data.status === 200) {
         commit("SET_CURRENT_USER", result.data.user);
@@ -247,12 +241,9 @@ export default {
           Authorization: "Bearer " + localStorage.getItem(CONFIG_ACCESS_TOKEN)
         }
       };
+      let url = "/member/password.php";
 
-      let result = await axiosInstance.post(
-        "/member/password.php",
-        data,
-        config
-      );
+      let result = await axiosInstance.post(url, data, config);
       commit("SET_LOADING", false);
       if (result.data.status === 200) {
         return {

@@ -47,6 +47,7 @@
 
 <script>
 import { mapActions } from "vuex";
+import { REGISTER_FAILED, REGISTER_SUCCESS } from "../constants";
 export default {
     name: "register",
     data() {
@@ -73,16 +74,15 @@ export default {
                 data.repassword
             ) {
                 this.register(data).then(res => {
-                    console.log("res = ", res);
                     if (!res.ok) {
-                        alert(res.error); // Notification
+                        this.$notify(REGISTER_FAILED);
                     } else {
                         this.$router.push("/");
-                        alert("Đăng ký thành công");
+                        this.$notify(REGISTER_SUCCESS);
                     }
                 });
             } else {
-                alert("Nhập đầy đủ thông tin");
+                this.$notify(REGISTER_FAILED);
             }
         }
     }

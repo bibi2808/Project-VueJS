@@ -36,7 +36,12 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-
+import {
+    NEWPASSWORD_AND_OLDPASSWORD_DOES_NOT_MATCH,
+    NEWPASSWORD_DOES_NOT_MATCH,
+    ENTER_FULL_INFORMATION,
+    CHANG_PASSWORD_SUCCESS
+} from "../constants";
 export default {
     name: "change-password",
     data() {
@@ -72,9 +77,9 @@ export default {
             let { oldPassword, newPassword, reNewPassword } = this;
             if (oldPassword && newPassword && reNewPassword) {
                 if (oldPassword == newPassword) {
-                    alert("Mật khẩu cũ không được trùng với mật khẩu mới");
+                    this.$notify(NEWPASSWORD_AND_OLDPASSWORD_DOES_NOT_MATCH);
                 } else if (newPassword != reNewPassword) {
-                    alert("Mật khẩu nhập lại không khớp");
+                    this.$notify(NEWPASSWORD_DOES_NOT_MATCH);
                 } else {
                     let data = {
                         oldPassword,
@@ -83,15 +88,15 @@ export default {
                     };
                     this.changePassword(data).then(res => {
                         if (res.ok) {
-                            alert(res.message);
+                            this.$notify(CHANG_PASSWORD_SUCCESS);
                             this.$router.push("/");
                         } else {
-                            alert(res.error);
+                            this.$notify(NEWPASSWORD_DOES_NOT_MATCH);
                         }
                     });
                 }
             } else {
-                alert("Vui lòng nhập đầy đủ thông tin!");
+                this.$notify(ENTER_FULL_INFORMATION);
             }
         }
     }
