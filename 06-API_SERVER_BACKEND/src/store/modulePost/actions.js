@@ -200,8 +200,6 @@ export default {
           fullname: rootState.user.currentUser.fullname,
           profilepicture: rootState.user.currentUser.profilepicture
         };
-        console.log("result comment = ", result.data.body);
-        console.log("comment = ", comment);
         commit("PUST_LIST_COMMENTS", comment);
         return {
           ok: true,

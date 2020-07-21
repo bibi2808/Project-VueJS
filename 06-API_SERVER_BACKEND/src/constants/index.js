@@ -1,4 +1,4 @@
-const PAGE_SIZE = 3;
+const PAGE_SIZE = 20;
 const CURRENT_PAGE = 1;
 
 const CONFIG_ACCESS_TOKEN = "ACCESS_TOKEN";
@@ -116,16 +116,16 @@ const UPLOAD_SUCCESS = {
   duration: 3000,
   speed: 1000,
   title: "Important message",
-  text: "Uploaded is successfully !"
+  text: "Upload is successfully !"
 };
 
 const UPLOAD_FAILED = {
   group: "error",
-  type: "success",
+  type: "error",
   duration: 3000,
   speed: 1000,
   title: "Important message",
-  text: "Uploaded is successfully !"
+  text: "Upload is failed !"
 };
 
 export {

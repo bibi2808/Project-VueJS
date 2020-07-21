@@ -1,11 +1,12 @@
 <template>
     <div class="ass1-add-comment">
         <form action="#" @submit.prevent="handleAddComment">
-            <textarea
+            <input
+                type="text"
                 v-model="comment"
                 class="form-control ttg-border-none"
                 placeholder="Add a comment ......"
-            ></textarea>
+            />
         </form>
         <div class="ass1-add-comment__content">
             <a
@@ -53,7 +54,7 @@ export default {
                 };
                 this.addNewComment(data).then(res => {
                     if (res.ok) {
-                        this, $notify(COMMENT_SUCCESS);
+                        this.$notify(COMMENT_SUCCESS);
                         this.comment = "";
                     } else {
                         this.$notify(INFORMATION_IS_NOT_CORRECT);
