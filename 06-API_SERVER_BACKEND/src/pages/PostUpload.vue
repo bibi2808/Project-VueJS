@@ -124,17 +124,14 @@ export default {
         },
         handleUploadImage(e) {
             if (e.target.files && e.target.files.length) {
+                console.log("file", e);
                 const imageUpload = e.target.files[0];
-
                 let check = checkImageFile(imageUpload);
-
                 if (!check) {
                     this.$notify(TYPE_OF_FILE_WRONG);
                     return;
                 }
-
                 let reader = new FileReader();
-
                 reader.addEventListener(
                     "load",
                     () => {
@@ -144,7 +141,6 @@ export default {
                     },
                     false
                 );
-
                 if (imageUpload) {
                     reader.readAsDataURL(imageUpload);
                 }
@@ -182,12 +178,10 @@ export default {
                         }
                     });
                 } else {
-                    // alert("Vui lòng upload hình ảnh bài viết");
                     this.$notify(UPLOAD_FAILED);
                 }
             } else {
                 this.$notify(UPLOAD_FAILED);
-                // alert("Vui lòng nhập đầy đủ nội đụng");
             }
         }
     }
