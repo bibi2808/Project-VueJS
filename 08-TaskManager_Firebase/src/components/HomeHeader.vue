@@ -10,12 +10,12 @@
                 </li>
             </ul>
             <ul class="right">
-                <li>
-                    Đăng nhập với
-                    <a href="/">example@gmail.com</a>
+                <li v-if="currentUser">
+                    <span >Login with </span>
+                    <router-link to="/">{{ currentUser.email}}</router-link>
                 </li>
                 <li>
-                    <router-link to="/logout">Logout</router-link>
+                    <a @click.prevent="handleLogout" href="#">Logout</a>
                 </li>
             </ul>
         </div>
@@ -23,10 +23,27 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+import { auth } from "../config/firebase";
 export default {
-    name: "home-header"
+    name: "home-header",
+    computed: {
+        ...mapState(["currentUser"])
+    },
+    methods: {
+        handleLogout() {
+            if (confirm("are you sure to logout")) {
+                auth.signOut();
+            }
+
+            // thay doi currentUser
+        }
+    }
 };
 </script>
 
 <style>
+.right span{
+    margin-right: 2header ul li0px;
+}
 </style>

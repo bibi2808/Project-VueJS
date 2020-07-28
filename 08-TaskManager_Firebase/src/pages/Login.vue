@@ -10,14 +10,24 @@
                 />
                 <p id="profile-name" class="profile-name-card"></p>
 
-                <form id="form-signup" class="form-signin">
+                <form @submit.prevent="handleLogin" id="form-signup" class="form-signin">
                     <div class="form-group">
                         <!-- <label>Email</label> -->
-                        <input type="email" class="form-control" placeholder="Địa chỉ email" />
+                        <input
+                            v-model="email"
+                            type="email"
+                            class="form-control"
+                            placeholder="Địa chỉ email"
+                        />
                     </div>
                     <div class="form-group">
                         <!-- <label>Mật khẩu</label> -->
-                        <input type="password" class="form-control" placeholder="Mật khẩu" />
+                        <input
+                            v-model="password"
+                            type="password"
+                            class="form-control"
+                            placeholder="Mật khẩu"
+                        />
                     </div>
                     <button
                         class="btn btn-lg btn-primary btn-block btn-signin"
@@ -25,15 +35,41 @@
                     >Đăng nhập</button>
                 </form>
 
-                <a href="#" class="register">Đăng ký một tài khoản</a>
+                <router-link to="/register" class="register">Đăng ký một tài khoản</router-link>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
-    name: "login"
+    name: "login",
+    data() {
+        return {
+            email: "",
+            password: ""
+        };
+    },
+    methods: {
+        ...mapActions(["login"]),
+        handleLogin() {
+            if (this.email && this.password) {
+                let data = {
+                    email: this.email,
+                    password: this.password
+                };
+                this.login(data).then(res => {
+                    if (res.ok) {
+                        // success
+                        this.$router.push('/');
+                    } else {
+                        alert(res.error);
+                    }
+                });
+            }
+        }
+    }
 };
 </script>
 

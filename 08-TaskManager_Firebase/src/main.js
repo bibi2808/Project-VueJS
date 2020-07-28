@@ -6,15 +6,29 @@ import Datetime from "vue-datetime";
 
 import "vue-datetime/dist/vue-datetime.css";
 import "./assets/style.css";
-
-import database from "./config/firebase";
-
-var tasksRef = database.ref("tasks");
-tasksRef.on("value", function(snapshot) {
-  store.commit("SET_LIST_TASKS", snapshot.toJSON());
-});
+import { auth } from "./config/firebase";
 
 Vue.use(Datetime);
+
+auth.onAuthStateChanged(function(user) {
+	if (user) {
+		// console.log('user',user)
+		let data = {
+			email: user.email,
+			uid: user.uid
+		};
+		store.commit("SET_CURRENT_USER", data);
+		router.push("/");
+	} else {
+		let data = {
+			mail: "",
+			uid: ""
+		};
+		store.commit("SET_CURRENT_USER", data);
+		router.push("/login");
+		// console.log("signed out");
+	}
+});
 
 new Vue({
   el: "#app",

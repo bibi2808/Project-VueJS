@@ -7,7 +7,10 @@
 
 <script>
 export default {
-    name: "page-title"
+    name: "page-title",
+    props:{
+        
+    }
 };
 </script>
 

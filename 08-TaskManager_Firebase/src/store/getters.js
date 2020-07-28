@@ -26,5 +26,23 @@ export default {
       toVerify,
       done
     };
+  },
+  isLogin: state => {
+    if (state.currentUser.email !== "" && state.currentUser.uid !== "") {
+      return true;
+    }
+    return false;
+  },
+  getListEmailUser: state => {
+    const listUsers = state.listUsers;
+    let arrEmails = [];
+    for (let key in listUsers) {
+      let value = listUsers[key];
+      arrEmails.push(value.email);
+    }
+    return arrEmails;
+  },
+  isAdmin: state => {
+    return state.currentUser.role === "admin";
   }
 };

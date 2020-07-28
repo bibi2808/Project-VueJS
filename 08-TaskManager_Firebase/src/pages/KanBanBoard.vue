@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import HomeHeader from "../components/HomeHeader";
 import MainHeader from "../components/MainHeader";
 import SideBar from "../components/SideBar";
@@ -30,6 +31,12 @@ export default {
         HomeHeader,
         MainHeader,
         SideBar
+    },
+    methods: {
+        ...mapActions(["getUserCustomField"])
+    },
+    mounted() {
+        this.getUserCustomField();
     }
 };
 </script>

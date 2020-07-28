@@ -28,6 +28,7 @@ header ul li {
   color: rgba(255, 255, 255, 0.8);
   display: inline-block;
   margin-right: 10px;
+  font-weight: bold;
 }
 header ul li a:hover {
   color: rgba(255, 255, 255, 1);
