@@ -1,6 +1,6 @@
 <template>
     <div class="main-content">
-        <page-title />
+        <page-title title="Create a new task"/>
         <div class="create-board">
             <div class="row">
                 <div class="col-xs-12 input-group">

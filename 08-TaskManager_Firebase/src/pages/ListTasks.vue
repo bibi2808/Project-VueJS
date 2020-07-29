@@ -1,6 +1,8 @@
 <template>
     <div class="main-content">
-        <page-title />
+        <page-title title="Management Task">
+            <router-link to="/create" class="create-new-item">Create New Item</router-link>
+        </page-title>
         <div class="wrapper-board">
             <div class="row">
                 <!-- TODO -->

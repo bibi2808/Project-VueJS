@@ -62,7 +62,10 @@ export default {
     },
     methods: {
         handleDeleteTask() {
-            tasksRef.child(this.item.id).remove();
+            let aler = alert("Are you sure to delete this task ?");
+            if (aler) {
+                tasksRef.child(this.item.id).remove();
+            }
         }
     }
 };
@@ -80,6 +83,7 @@ export default {
     position: relative;
 }
 .assign .delete {
+    cursor: pointer;
     position: absolute;
     right: 0;
     top: 3px;

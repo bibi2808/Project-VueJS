@@ -1,7 +1,7 @@
 <template>
     <div class="page-title">
-        <span>Kangban Board</span>
-        <router-link to="/create" class="create-new-item">Create New Item</router-link>
+        <span>{{ title }}</span>
+        <slot></slot>
     </div>
 </template>
 
@@ -9,7 +9,10 @@
 export default {
     name: "page-title",
     props:{
-        
+        title:{
+            type:String,
+            default:''
+        }
     }
 };
 </script>
