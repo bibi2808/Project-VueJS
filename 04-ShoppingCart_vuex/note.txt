@@ -1,0 +1,4 @@
+v-bind:key="item.id" -> viết tắt :key="item.id"
+v-bind:prodct="item" -> viết tắt :product="item"
+
+v-on:click="plus" -> viết tắt @click="plus"

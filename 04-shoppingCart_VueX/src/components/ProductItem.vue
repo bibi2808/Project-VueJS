@@ -1,69 +1,57 @@
 <template>
-    <div class="product-item">
-        <!-- PRODUCT : START -->
-        <div class="media product">
-            <div class="media-left">
-                <a href="#">
-                    <img class="media-object" :src="urlImage" alt="charmander" />
-                </a>
-            </div>
-            <div class="media-body">
-                <h4 class="media-heading">{{ product.name }}</h4>
-                <p>{{ product.summary}}</p>
-                <template v-if="product.canBuy">
-                    <input
-                        v-model="quantity"
-                        name="quantity-product-1"
-                        type="number"
-                        value="1"
-                        min="1"
-                    />
-                    <a
-                        data-product="1"
-                        href="#"
-                        class="price"
-                        @click.prevent="handleBuyProduct"
-                    >{{formatPrice}}</a>
-                </template>
-
-                <span v-else class="price">{{ formatPrice }}</span>
-            </div>
+    <div class="media product">
+        <div class="media-left">
+            <a href="#">
+                <img class="media-object" :src="urlImage" alt="charmander">
+            </a>
         </div>
-        <!-- PRODUCT : END -->
+        <div class="media-body">
+            <h4 class="media-heading">{{ product.name }}</h4>
+            <p>{{ product.summary }}</p>
+            <template v-if="product.canBuy">
+                <input v-model="quantity" type="number" value="1" min="1">
+                <a @click.prevent="handleBuyProduct" href="#" class="price">{{ formatPrice }}</a>
+            </template>
+            <span v-else class="price">{{ formatPrice }}</span>
+        </div>
     </div>
 </template>
 
 <script>
-import { toCurrency, validateQuantity } from "../helper";
-import { NOTI_GREATER_THAN_ONE, NOTI_ACT_ADD } from "../constant/config";
-import { mapActions } from "vuex";
+import { mapActions } from 'vuex';
+
+import { toCurrency, validateQuantity } from '../helpers';
+import { NOTI_GREATER_THAN_ONE, NOTI_ACT_ADD } from '../constants/config';
+
 export default {
-    name: "product-item",
-    data() {
-        return { quantity: 1 };
-    },
+    name: 'product-item',
     props: {
         product: { type: Object, default: {} }
     },
+    data() {
+        return {
+            quantity: 1
+        }
+    },
     computed: {
         urlImage() {
-            return "dist/images/" + this.product.image;
+            return '/dist/images/' + this.product.image;
         },
         formatPrice() {
-            return toCurrency(this.product.price, "$", "left");
+            return toCurrency(this.product.price, 'USD', 'right');
         }
     },
     methods: {
         ...mapActions({
-            actBuyProduct: "cart/actionBuyProduct"
+            'actBuyProduct': 'cart/actBuyProduct'
         }),
         handleBuyProduct() {
             const check = validateQuantity(this.quantity);
-            if (check) {
+            if(check) {
                 let data = {
                     product: this.product,
                     quantity: parseInt(this.quantity)
-                };
+                }
                 this.quantity = 1;
                 this.actBuyProduct(data);
                 this.$notify(NOTI_ACT_ADD);
@@ -72,8 +60,9 @@ export default {
             }
         }
     }
-};
+}
 </script>
 
 <style>
+
 </style>

@@ -1,4 +1,4 @@
-# shopping_cart_vuex
+# shopping_cart
 
 > A Vue.js project
 

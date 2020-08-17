@@ -1,46 +1,55 @@
 <template>
-    <div id="app">
-        <loading :class="{show:isLoading}" />
-        <div class="container">
-            <comp-title />
+	<div id="app">
+		
+		<div class="container">
+			<!-- TITLE : START -->
+			<comp-title />
+			<!-- TITLE : END -->
 
-            <div class="row">
-                <product-list />
-
-                <cart-wrapper />
-            </div>
-            <notifications group="noti" position="top right" />
-        </div>
-    </div>
+			<div class="row">
+				<!-- LIST PRODUCT : START -->
+				<product-list />
+				<!-- LIST PRODUCT : END -->
+				
+				<!-- CART : START -->
+				<cart-wrapper />
+				<!-- CART : END -->
+			</div>
+			<notifications group="noti" position="bottom right" :duration="2000"/>
+			<loading :class="{ show: isLoading }"/>
+		</div>	
+	</div>
 </template>
 
 <script>
-import { mapState } from "vuex";
-
-import CompTitle from "./components/CompTitle";
-import ProductList from "./components/ProductList";
-import CartWrapper from "./components/CartWrapper";
-import Loading from "./components/Loading";
+import { mapState } from 'vuex';
+import CompTitle from './components/CompTitle';
+import ProductList from './components/ProductList';
+import CartWrapper from './components/CartWrapper';
+import Loading from './components/Loading';
 export default {
-    name: "app",
-    data() {
-        return {};
-    },
-    computed: {
-        ...mapState(["isLoading"])
-    },
-    components: {
-        CompTitle,
-        ProductList,
-        CartWrapper,
-        Loading
-    }
-};
+	name: 'app',
+	components: {
+		CompTitle,
+		ProductList,
+		CartWrapper,
+		Loading
+	},
+	data () {
+		return {
+			
+		}
+	},
+	computed: mapState([ 'isLoading' ]),
+	mounted() {
+		
+	}
+}
 </script>
 
 <style>
-.vue-notification {
-    padding-right: 10px;
-    padding-bottom: 10px;
-}
+	.notifications {
+		padding-right: 10px;
+		padding-bottom: 10px;
+	}
 </style>

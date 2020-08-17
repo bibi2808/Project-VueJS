@@ -1,5 +1,5 @@
 export default {
-	SET_LOADING: (state, loading = true) => {
-		state.isLoading = loading;
-	}
-};
+    SET_LOADING: (state, loading = false) => {
+        state.isLoading = loading;
+    }
+}

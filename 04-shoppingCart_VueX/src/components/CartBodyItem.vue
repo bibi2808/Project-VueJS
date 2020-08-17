@@ -4,88 +4,76 @@
         <td>{{ product.name }}</td>
         <td>{{ formatPrice }}</td>
         <td>
-            <input :value="cart.quantity" @blur="handleUpdate" type="number" min="1" />
+            <input 
+                :value="cart.quantity" 
+                @blur="handleUpdate"
+                type="number" min="1">
         </td>
+        <td><strong>{{ formatTotal }}</strong></td>
         <td>
-            <strong>{{ formatTotal }}</strong>
-        </td>
-        <td>
-            <a class="label label-info update-cart-item" href="#" data-product>Update</a>
-            <a
-                @click.prevent="handleDelete"
-                class="label label-danger delete-cart-item"
-                href="#"
-                data-product
-            >Delete</a>
+            <a @click.prevent="" class="label label-info update-cart-item" href="#">Update</a>
+            <a @click.prevent="handleDelete" class="label label-danger delete-cart-item" href="#">Delete</a>
         </td>
     </tr>
 </template>
 
 <script>
-import { toCurrency, validateQuantity } from "../helper";
-import { mapActions } from "vuex";
-import {
-    NOTI_ACT_DELETE,
-    NOTI_GREATER_THAN_ONE,
-    NOTI_ACT_UPDATE
-} from "../constant/config";
+import { mapActions } from 'vuex';
+import { NOTI_ACT_DELETE, NOTI_GREATER_THAN_ONE, NOTI_ACT_UPDATE } from '../constants/config';
+import { toCurrency, validateQuantity } from '../helpers';
 export default {
-    name: "cart-body-item",
+    name: 'cart-body-item',
     props: {
-        index: { type: Number },
-        cart: { type: Object }
+        cart: { type: Object },
+        index: { type: Number }
     },
     computed: {
         product() {
             return this.cart.product;
         },
         formatPrice() {
-            return toCurrency(this.product.price, "$", "left");
+            return toCurrency(this.product.price, 'USD', 'right');
         },
         formatTotal() {
-            return toCurrency(
-                this.product.price * this.cart.quantity,
-                "$",
-                "left"
-            );
+            return toCurrency(this.product.price * this.cart.quantity, 'USD', 'right');
         }
     },
     methods: {
         ...mapActions({
-            actDeleteCart: "cart/handleDeleteCart",
-            setLoading: "setLoading",
-            actUpdateQuantity: "cart/actUpdateQuantity"
+            'actDeleteCart': 'cart/actDeleteCart',
+            'actUpdateQuantity': 'cart/actUpdateQuantity',
+            'setLoading': 'setLoading'
         }),
         handleDelete() {
-            if (confirm("Are you sure to delete this item ?")) {
+            if(confirm('Bạn có muốn xóa đơn hàng không?')) {
                 this.actDeleteCart(this.cart);
                 this.$notify(NOTI_ACT_DELETE);
             }
         },
-        handleUpdate(event) {
+        handleUpdate(e) {
             this.setLoading(true);
             setTimeout(() => {
-                let quantity = event.target.value;
+                let quantity = e.target.value;
                 const check = validateQuantity(quantity);
-                if (check) {
-                    // 1.change quantity of product
-                    // 2.update cart
-                    let data = {
-                        cartUpdate: this.cart,
+                if(check) {
+                    let data = { 
+                        cartUpdate: this.cart, 
                         quantity: parseInt(quantity)
-                    };
+                    }
                     this.actUpdateQuantity(data);
                     this.$notify(NOTI_ACT_UPDATE);
                 } else {
-                    event.target.value = this.cart.quantity;
+                    e.target.value = this.cart.quantity;
                     this.$notify(NOTI_GREATER_THAN_ONE);
                 }
                 this.setLoading(false);
             }, 1000);
         }
+
     }
-};
+}
 </script>
 
 <style>
+
 </style>
