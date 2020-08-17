@@ -1,6 +1,6 @@
 <template>
     <div class="main-content">
-        <page-title :title="'Task #' + id"/>
+        <page-title :title="'Task #' + id" />
         <div class="create-board">
             <div class="row">
                 <div class="col-xs-12 input-group">

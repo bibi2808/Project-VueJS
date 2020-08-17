@@ -42,7 +42,8 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapGetters,mapActions } from "vuex";
+import { auth } from "../config/firebase";
 export default {
     name: "login",
     data() {
@@ -50,6 +51,9 @@ export default {
             email: "",
             password: ""
         };
+    },
+    computed:{
+        ...mapGetters(['getCurrentUserId'])
     },
     methods: {
         ...mapActions(["login"]),
@@ -61,8 +65,7 @@ export default {
                 };
                 this.login(data).then(res => {
                     if (res.ok) {
-                        // success
-                        this.$router.push('/');
+                        // success -> redirect to home page -> main.js
                     } else {
                         alert(res.error);
                     }

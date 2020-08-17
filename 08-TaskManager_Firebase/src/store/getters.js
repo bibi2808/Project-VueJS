@@ -46,5 +46,8 @@ export default {
 	},
 	isAdmin: state => {
 		return state.currentUser.role === "admin";
+	},
+	getCurrentUserId: state => {
+		return state.currentUser.uid;
 	}
 };

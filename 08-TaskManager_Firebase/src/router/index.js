@@ -7,8 +7,9 @@ import KanBanBoard from "../pages/KanBanBoard";
 import ListTasks from "../pages/ListTasks";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import Video from "../pages/Video";
 
-import {ifNotAuthenticated, ifAuthenticated} from '../plugins/authenticate'
+import { ifNotAuthenticated, ifAuthenticated } from "../plugins/authenticate";
 
 Vue.use(VueRouter);
 
@@ -32,6 +33,11 @@ const routes = [
         path: "edit/:id",
         name: "edit-task-page",
         component: EditTask
+      },
+      {
+        path: "/video",
+        name: "/video",
+        component: Video
       }
     ]
   },
@@ -39,13 +45,13 @@ const routes = [
     path: "/login",
     name: "login",
     component: Login,
-    beforeEnter:ifNotAuthenticated
+    beforeEnter: ifNotAuthenticated
   },
   {
     path: "/register",
     name: "register",
     component: Register,
-    beforeEnter:ifNotAuthenticated
+    beforeEnter: ifNotAuthenticated
   }
 ];
 

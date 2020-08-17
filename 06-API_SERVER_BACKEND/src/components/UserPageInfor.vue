@@ -30,6 +30,10 @@
                             :to="{ name: 'user-profile', params: { id: userInfor.USERID } }"
                             class="ass1-head-user__btn-follow ass1-btn"
                         >Profile</router-link>
+                        <router-link
+                            to="/list-users"
+                            class="ass1-head-user__btn-follow ass1-btn"
+                        >List Users</router-link>
                     </template>
                 </div>
                 <div class="ass1-head-user__info-statistic">

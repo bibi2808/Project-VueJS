@@ -12,10 +12,10 @@ import moduleProduct from "./product";
 
 // giống như WATCHER dùng để theo dõi thay đổi của state khi kích hoạt MUTATIONS
 const localStorage = store => {
-  store.subscribe((mutation, state) => {
-    // Save data
-    window.localStorage.setItem("cart", JSON.stringify(state.cart));
-  });
+    store.subscribe((mutation, state) => {
+      	// Save data
+      	window.localStorage.setItem("cart", JSON.stringify(state.cart));
+    });
 };
 
 const store = new Vuex.Store({

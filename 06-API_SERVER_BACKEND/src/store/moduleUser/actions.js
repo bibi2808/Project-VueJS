@@ -1,7 +1,7 @@
 import axiosInstance from "../../plugins/axios";
 
 import { parseJwt } from "../../helpers";
-import { CONFIG_ACCESS_TOKEN } from "../../constants";
+import { PAGE_SIZE, CURRENT_PAGE, CONFIG_ACCESS_TOKEN } from "../../constants";
 
 export default {
   async getUserById({ commit }, userid) {
@@ -77,10 +77,12 @@ export default {
         // let resultPostUser  = await dispatch('getListPostsByUserId', userObj.id);
         let promiseUser = dispatch("getUserById", userObj.id);
         let promisePostUser = dispatch("getListPostsByUserId", userObj.id);
-
-        let [resultUser, resultPostUser] = await Promise.all([
+        let promiseListUsers = dispatch("getListUsers");
+        console.log("promise list users");
+        let [resultUser, resultPostUser, resultListUsers] = await Promise.all([
           promiseUser,
-          promisePostUser
+          promisePostUser,
+          promiseListUsers
         ]);
 
         // Dòng 73 chạy 3s
@@ -258,6 +260,25 @@ export default {
       }
     } catch (error) {
       commit("SET_LOADING", false);
+      return {
+        ok: false,
+        error: error.message
+      };
+    }
+  },
+  async getListUsers({ commit }) {
+    try {
+      let config = {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + localStorage.getItem(CONFIG_ACCESS_TOKEN)
+        }
+      };
+      let url = `/member/getListPaging.php?pagesize=${PAGE_SIZE}&currPage=${CURRENT_PAGE}`;
+
+      let result = await axiosInstance.get(url, config);
+      console.log("result", result);
+    } catch (error) {
       return {
         ok: false,
         error: error.message

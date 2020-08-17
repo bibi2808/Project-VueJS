@@ -10,6 +10,7 @@ import PostUpload from "./pages/PostUpload";
 import UserPage from "./pages/UserPage";
 import UserProfile from "./pages/UserProfile";
 import Search from "./pages/Search";
+import ListUsers from "./pages/ListUsers";
 
 import { ifNotAuthenticated, ifAuthenticated } from "./plugins/authenticate";
 
@@ -65,6 +66,11 @@ const routes = [
     path: "/search",
     name: "search",
     component: Search
+  },
+  {
+    path: "/list-users",
+    name: "list-users",
+    component: ListUsers
   }
 ];
 

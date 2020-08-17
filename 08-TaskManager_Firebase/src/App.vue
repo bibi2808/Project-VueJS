@@ -21,6 +21,7 @@ export default {
         Loading
     },
     created() {
+        // this.login();
         this.onListener();
         this.onListenerUser();
     }

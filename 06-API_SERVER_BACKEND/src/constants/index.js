@@ -1,4 +1,4 @@
-const PAGE_SIZE = 10;
+const PAGE_SIZE = 3;
 const CURRENT_PAGE = 1;
 
 const CONFIG_ACCESS_TOKEN = "ACCESS_TOKEN";

@@ -11,7 +11,7 @@
             </ul>
             <ul class="right">
                 <li v-if="currentUser">
-                    <span >Login with </span>
+                    <span>Login with</span>
                     <router-link to="/">{{ currentUser.email}}</router-link>
                 </li>
                 <li>
@@ -33,7 +33,9 @@ export default {
     methods: {
         handleLogout() {
             if (confirm("are you sure to logout")) {
-                auth.signOut();
+                let result = auth.signOut().then(res => {
+                    console.log("result logout", res);
+                });
             }
 
             // thay doi currentUser
@@ -43,7 +45,7 @@ export default {
 </script>
 
 <style>
-.right span{
-    margin-right: 2header ul li0px;
+.right span {
+    margin-right: 20px;
 }
 </style>

@@ -27,6 +27,7 @@ import MainHeader from "../components/MainHeader";
 import SideBar from "../components/SideBar";
 export default {
     name: "kanban-board",
+
     components: {
         HomeHeader,
         MainHeader,
