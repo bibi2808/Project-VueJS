@@ -1,22 +1,20 @@
 <template>
     <div id="app">
-        <img src="./assets/logo.png" />
-        <h1>{{ msg }}</h1>
-        <h2>Essential Links</h2>
         <ul>
             <li>
-                <router-link to="/subject" target="_blank">Subject</router-link>
+                <router-link to="/subject">科目</router-link>
             </li>
             <li>
-                <router-link to="/date" target="_blank">Date</router-link>
+                <router-link to="/date">日時</router-link>
             </li>
             <li>
-                <router-link to="/information" target="_blank">Information</router-link>
+                <router-link to="/information">連絡先</router-link>
             </li>
             <li>
-                <router-link to="/confirm" target="_blank">Confirm</router-link>
+                <router-link to="/confirm">確認</router-link>
             </li>
         </ul>
+        <router-view></router-view>
     </div>
 </template>
 

@@ -13,27 +13,27 @@ const routes = [
   {
     path: "/subject",
     name: "subject",
-    components: Subject
+    component: Subject
   },
   {
     path: "/date",
     name: "date",
-    components: Date
+    component: Date
   },
   {
     path: "/information",
     name: "information",
-    components: Information
+    component: Information
   },
   {
     path: "/confirm",
     name: "confirm",
-    components: Confirm
+    component: Confirm
   },
   {
     path: "/thank-you",
     name: "thank-you",
-    components: ThankYou
+    component: ThankYou
   }
 ];
 

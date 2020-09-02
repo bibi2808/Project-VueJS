@@ -10,11 +10,16 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.11.5",
     "bootstrap": "^4.5.2",
     "bootstrap-vue": "^2.16.0",
+    "firebase": "^7.19.1",
+    "luxon": "^1.25.0",
     "vue": "^2.6.12",
+    "vue-datetime": "^1.0.0-beta.14",
     "vue-router": "^3.4.3",
-    "vuex": "^3.5.1"
+    "vuex": "^3.5.1",
+    "weekstart": "^1.0.1"
   },
   "browserslist": [
     "> 1%",
