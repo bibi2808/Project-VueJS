@@ -83,8 +83,8 @@ export default {
           promiseUser,
           promisePostUser,
           promiseListUsers
-        ]);
-
+		]);
+		
         // Dòng 73 chạy 3s
         // Dòng 74 chạy 4s
         // Tổng lại chúng ta phải chờ 7s
@@ -94,8 +94,8 @@ export default {
 
         if (resultUser.ok && resultPostUser.ok) {
           let data = {
-            user: resultUser.data,
-            token: tokenLocal
+              user: resultUser.data,
+              token: tokenLocal
           };
           commit("SET_LOGIN_INFO", data);
           return {
@@ -104,9 +104,9 @@ export default {
           };
         }
       }
-      return {
-        ok: false
-      };
+		return {
+			ok: false
+		};
     } catch (error) {
       return {
         ok: false,

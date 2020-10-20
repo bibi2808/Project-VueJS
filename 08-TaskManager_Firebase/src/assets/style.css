@@ -110,13 +110,11 @@ main .col-md-3 {
 }
 .backlogs-item {
   background-color: #fcffdb;
-  border: 1px solid #eee;
   padding: 3px;
   font-size: 12px;
   margin-bottom: 20px;
 }
 .backlogs-item .project {
-  border: 1px solid #eee;
   text-align: center;
   padding: 6px 0 2px 0;
 }

@@ -5,14 +5,11 @@
                 <li>
                     <router-link to="/">Home</router-link>
                 </li>
-                <li>
-                    <a href="/">Tasks</a>
-                </li>
             </ul>
             <ul class="right">
                 <li v-if="currentUser">
                     <span>Login with</span>
-                    <router-link to="/">{{ currentUser.email}}</router-link>
+                    <router-link :to="getUserListVideo">{{ currentUser.email}}</router-link>
                 </li>
                 <li>
                     <a @click.prevent="handleLogout" href="#">Logout</a>
@@ -23,22 +20,29 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapGetters } from "vuex";
 import { auth } from "../config/firebase";
 export default {
     name: "home-header",
     computed: {
-        ...mapState(["currentUser"])
+        ...mapState(["currentUser"]),
+        getUserListVideo() {
+            return {
+                name: "list-video",
+                params: {
+                    uid: this.currentUser.uid
+                }
+            };
+        }
     },
     methods: {
         handleLogout() {
             if (confirm("are you sure to logout")) {
                 let result = auth.signOut().then(res => {
-                    console.log("result logout", res);
+                    localStorage.removeItem("listVideoId");
+                    this.$router.push("/login");
                 });
             }
-
-            // thay doi currentUser
         }
     }
 };

@@ -15,7 +15,7 @@ const localStorage = store => {
     
     store.subscribe((mutation, state) => {
         // console.log("subscribe : ",state);
-        window.localStorage.setItem('cart', JSON.stringify(state.cart));
+        localStorage.setItem('cart', JSON.stringify(state.cart));
     })
 }
 

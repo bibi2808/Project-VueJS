@@ -1,43 +1,36 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import CreateTask from "../pages/CreateTask";
-import EditTask from "../pages/EditTask";
 import KanBanBoard from "../pages/KanBanBoard";
-import ListTasks from "../pages/ListTasks";
+import ListVideo from "../pages/ListVideo";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
-import Video from "../pages/Video";
+import UserListVideo from "../pages/UserListVideo";
+import DetailVideo from "../pages/DetailVideo";
 
-import { ifNotAuthenticated, ifAuthenticated } from "../plugins/authenticate";
-
+import { auth } from "../config/firebase";
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
     component: KanBanBoard,
-    beforeEnter: ifAuthenticated,
+    meta: { requiresAuth: true },
     children: [
       {
         path: "",
         name: "home-page",
-        component: ListTasks
+        component: ListVideo
       },
       {
-        path: "create",
-        name: "create-task-page",
-        component: CreateTask
+        path: "/list-video/:uid",
+        name: "list-video",
+        component: UserListVideo
       },
       {
-        path: "edit/:id",
-        name: "edit-task-page",
-        component: EditTask
-      },
-      {
-        path: "/video",
-        name: "/video",
-        component: Video
+        path: "/detail-video/:id",
+        name: "detail-video",
+        component: DetailVideo
       }
     ]
   },
@@ -45,19 +38,31 @@ const routes = [
     path: "/login",
     name: "login",
     component: Login,
-    beforeEnter: ifNotAuthenticated
+    meta: { requiresAuth: false }
   },
   {
     path: "/register",
     name: "register",
     component: Register,
-    beforeEnter: ifNotAuthenticated
+    meta: { requiresAuth: false }
   }
 ];
 
 const router = new VueRouter({
   mode: "history",
   routes
+});
+
+router.beforeEach((to, from, next) => {
+  const currentUser = auth.currentUser;
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+  if (requiresAuth && !currentUser) {
+    next("/login");
+  } else if (!requiresAuth && currentUser) {
+    next("/");
+  } else {
+    next();
+  }
 });
 
 export default router;

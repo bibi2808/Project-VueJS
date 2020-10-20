@@ -12,7 +12,6 @@
 
                 <form @submit.prevent="handleRegister" id="form-signup" class="form-signin">
                     <div class="form-group">
-                        <!-- <label>Email</label> -->
                         <input
                             v-model="email"
                             type="email"
@@ -21,7 +20,6 @@
                         />
                     </div>
                     <div class="form-group">
-                        <!-- <label>Mật khẩu</label> -->
                         <input
                             v-model="password"
                             type="password"
@@ -30,7 +28,6 @@
                         />
                     </div>
                     <div class="form-group">
-                        <!-- <label>Nhập lại mật khẩu</label> -->
                         <input
                             v-model="rePassword"
                             type="password"

@@ -12,7 +12,6 @@
 
                 <form @submit.prevent="handleLogin" id="form-signup" class="form-signin">
                     <div class="form-group">
-                        <!-- <label>Email</label> -->
                         <input
                             v-model="email"
                             type="email"
@@ -21,7 +20,6 @@
                         />
                     </div>
                     <div class="form-group">
-                        <!-- <label>Mật khẩu</label> -->
                         <input
                             v-model="password"
                             type="password"
@@ -42,7 +40,7 @@
 </template>
 
 <script>
-import { mapGetters,mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import { auth } from "../config/firebase";
 export default {
     name: "login",
@@ -52,8 +50,8 @@ export default {
             password: ""
         };
     },
-    computed:{
-        ...mapGetters(['getCurrentUserId'])
+    computed: {
+        ...mapGetters(["getCurrentUserId"])
     },
     methods: {
         ...mapActions(["login"]),
@@ -65,7 +63,7 @@ export default {
                 };
                 this.login(data).then(res => {
                     if (res.ok) {
-                        // success -> redirect to home page -> main.js
+                        this.$router.push("/");
                     } else {
                         alert(res.error);
                     }
